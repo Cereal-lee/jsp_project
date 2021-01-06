@@ -1,9 +1,11 @@
 package vo;
 
+import java.util.Date;
+
 public class TvVO {
 	private int tvId;
 	private String title;
-	private int date;
+	private Date date;
 	private float score;
 	private String context;
 	
@@ -30,10 +32,10 @@ public class TvVO {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public int getDate() {
+	public Date getDate() {
 		return date;
 	}
-	public void setDate(int date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 	public float getScore() {

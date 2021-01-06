@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.sql.Date;
 import java.util.List;
 
 import util.JDBCUtil;
@@ -30,7 +31,7 @@ public class TvDAO_Mariadb {
 				TvVO vo = new TvVO();
 				vo.setTvId(rs.getInt("tvId"));
 				vo.setTitle(rs.getString("title"));
-				vo.setDate(rs.getInt("date"));
+				vo.setDate(rs.getDate("date"));
 				vo.setScore(rs.getFloat("score"));
 				vo.setContext(rs.getString("context"));
 				
@@ -58,7 +59,7 @@ public class TvDAO_Mariadb {
 			ps = conn.prepareStatement(sql);
 			
 			ps.setString(1, vo.getTitle());
-			ps.setInt(2, vo.getDate());
+			ps.setDate(2, vo.getDate());
 			ps.setString(3, vo.getContext());
 			
 			row = ps.executeUpdate();
@@ -99,7 +100,7 @@ public class TvDAO_Mariadb {
 	}
 	
 	public void tvUpdate(TvVO vo) {
-		String sql = "update tv set title = ?, date = ?, context = ? where tvId";
+		String sql = "update tv set title = ?, date = ?, score = ?, context = ? where tvId = ?";
 		
 		Connection conn = null;
 		PreparedStatement ps = null; // SQL 관리
@@ -110,10 +111,16 @@ public class TvDAO_Mariadb {
 			conn = JDBCUtil.getConnection();
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, vo.getTitle());
-			ps.setInt(2, vo.getDate());
-			ps.setString(3, vo.getContext());	
+			ps.setDate(2, vo.getDate());
+			ps.setFloat(3, vo.getScore());
+			ps.setString(4, vo.getContext());
+			ps.setInt(5, vo.getTvId());
 			
 			row = ps.executeUpdate();
+			
+			if (row == 0) {
+				throw new Exception("수정 실패"); 
+			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -144,7 +151,7 @@ public class TvDAO_Mariadb {
 				TvVO vo = new TvVO();
 				vo.setTvId(rs.getInt("tvId"));
 				vo.setTitle(rs.getString("title"));
-				vo.setDate(rs.getInt("date"));
+				vo.setDate(rs.getDate("date"));
 				vo.setScore(rs.getFloat("score"));
 				vo.setContext(rs.getString("context"));
 				list.add(vo);
