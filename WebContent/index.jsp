@@ -27,16 +27,29 @@
 
 					<!-- Modal Header -->
 					<div class="modal-header">
-						<h4 class="modal-title">Modal Heading</h4>
+						<h5 class="modal-title">회원가입</h5>
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 					</div>
 
 					<!-- Modal body -->
-					<div class="modal-body">Modal body..</div>
-
+					<form>
+					<div class="modal-body">
+						<div class="input-group mb-3">
+   							<input type="text" class="form-control" placeholder="이름">
+   						</div>
+						<div class="input-group mb-3">
+   							<input type="text" class="form-control" placeholder="이메일">
+   						</div>
+   						<div class="input-group mb-3">
+   							<input type="text" class="form-control" placeholder="비밀번호">
+   						</div>
+   						<button type="button" class="btn btn-primary btn-block" style="text-align">회원가입</button>
+   					</div>
+					</form>
+					
 					<!-- Modal footer -->
 					<div class="modal-footer">
-						<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-danger btn-block" data-dismiss="modal">닫기</button>
 					</div>
 
 				</div>
@@ -50,22 +63,31 @@
 
 					<!-- Modal Header -->
 					<div class="modal-header">
-						<h4 class="modal-title">Modal Heading</h4>
+						<h5 class="modal-title">로그인</h5>
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 					</div>
 
 					<!-- Modal body -->
-					<div class="modal-body">Modal body..</div>
-
+					<form>
+					<div class="modal-body">
+						<div class="input-group mb-3">
+   							<input type="text" class="form-control" placeholder="이메일">
+   						</div>
+   						<div class="input-group mb-3">
+   							<input type="text" class="form-control" placeholder="비밀번호">
+   						</div>
+   						<button type="button" class="btn btn-primary btn-block" style="text-align">로그인</button>
+   					</div>
+					</form>
+					
 					<!-- Modal footer -->
 					<div class="modal-footer">
-						<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-danger btn-block" data-dismiss="modal">닫기</button>
 					</div>
 
 				</div>
 			</div>
 		</div>
-	</div>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
