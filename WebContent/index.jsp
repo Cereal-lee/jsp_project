@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	mediapedia
+	movie
+	tv
+	book
+	user
 </body>
 </html>
