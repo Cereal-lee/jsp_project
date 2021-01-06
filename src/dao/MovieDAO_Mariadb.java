@@ -12,7 +12,7 @@ import vo.MovieVO;
 import vo.UserVO;
 
 
-public class MoiveDAO_Mariadb {
+public class MovieDAO_Mariadb {
 	public List<MovieVO> movieList() {
 		List<MovieVO> list = new ArrayList<MovieVO>();
 		String sql = "select * from movie";
@@ -29,7 +29,7 @@ public class MoiveDAO_Mariadb {
 			while(rs.next() ) {
 				MovieVO vo = new MovieVO();
 				
-				vo.setMovieId(rs.getString("movieId"));
+				vo.setMovieId(rs.getInt("movieId"));
 				vo.setTitle(rs.getString("title") );
 				vo.setDate(rs.getDate("date"));
 				vo.setScore(rs.getFloat("score"));
@@ -122,7 +122,7 @@ public class MoiveDAO_Mariadb {
 			while(rs.next() ) {
 				MovieVO vo = new MovieVO();
 				
-				vo.setMovieId(rs.getString("movieId"));
+				vo.setMovieId(rs.getInt("movieId"));
 				vo.setTitle(rs.getString("title"));
 				vo.setDate(rs.getDate("date"));
 				vo.setScore(rs.getFloat("score"));
@@ -130,9 +130,6 @@ public class MoiveDAO_Mariadb {
 				
 				list.add(vo);
 			}
-
-
-		
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -144,7 +141,44 @@ public class MoiveDAO_Mariadb {
 		return list;
 	}
 	
-	
+	public void movieUpdate(MovieVO vo) {
+		
+		String sql = "update movie set title = ?, date = ?, score = ?, context = ? where movieId = ?";
+		
+		Connection con = null;
+		PreparedStatement ps = null; // SQL 관리
+		ResultSet rs = null;
+		int row = 0; // 결과 int 값으로 도출
+
+		try {
+			con = JDBCUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, vo.getTitle());
+			ps.setDate(2, (Date)vo.getDate() );
+			ps.setFloat(3, vo.getScore() );
+			ps.setString(4, vo.getContext());
+			ps.setInt(5, vo.getMovieId());
+			
+
+			// sql문 실행
+			// ps.executeQuery(); // 가지고있는거 사용할때 사용
+
+			row = ps.executeUpdate(); // 상태 변화 할때 사용
+
+			// 결과값 처리
+
+			if (row == 0) {
+				throw new Exception("수정 실패"); // 예외 객체 생성
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Error :" + e);
+		} finally {
+
+			JDBCUtil.close(con, ps, rs); // 자원반납 필수
+		}
+	}
 	
 	
 }

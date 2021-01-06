@@ -12,6 +12,4 @@ public interface UserService {
 	
 	public UserVO login(String email, String password);
 	
-	
-
 }

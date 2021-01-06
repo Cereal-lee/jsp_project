@@ -3,17 +3,17 @@ package vo;
 import java.util.Date;
 
 public class MovieVO {
-	private String movieId;
+	private int movieId;
 	private String title;
 	private Date date;
 	private Float score;
 	private String context;
 	
 	
-	public String getMovieId() {
+	public int getMovieId() {
 		return movieId;
 	}
-	public void setMovieId(String movieId) {
+	public void setMovieId(int movieId) {
 		this.movieId = movieId;
 	}
 	public String getTitle() {
@@ -45,5 +45,6 @@ public class MovieVO {
 		return "MovieVO [movieId=" + movieId + ", title=" + title + ", date=" + date + ", score=" + score + ", context="
 				+ context + "]";
 	}
+	
 	
 }
