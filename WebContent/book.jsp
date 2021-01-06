@@ -5,6 +5,26 @@
 <head>
 <meta charset="UTF-8">
 <title>왓챠피디아</title>
+<style>
+footer{
+width:100%;
+max-width:1000spx;
+height:auto;
+margin-top:1000spx;
+background-color: #f2dada;
+color:#423e3e;
+font-size : 12px;
+}
+fott{
+width:100%;
+max-width:1000spx;
+height:auto;
+margin-top:1000spx;
+background-color: #deafaf;
+color:#423e3e;
+font-size : 20px;
+}
+</style>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
@@ -78,5 +98,32 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
 		integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
 		crossorigin="anonymous"></script>
+		
+		<footer class="navbar-fixed-bottom navbar-light" >
+
+  <a class="navbar-brand" style="font-size:15px"> 서비스 이용약관</a>
+  <a class="navbar-brand" style="font-size:15px"> 개인정보 처리방침</a>
+  <a class="navbar-brand" style="font-size:15px"> 회사 안내</a>
+  
+ <br>
+     고객센터 : cs@watchapedia.co.kr, 02-515-9985
+  <br>
+  
+    제휴 및 대외 협력 : contact@watcha.com, 070-7554-9696
+ <br>
+ <br>
+    주식회사 왓챠 /
+    대표 : ddd /
+    서을특별시 서초구 강남대로 343 신덕빌딩 3층
+    <br>
+    사업자 등록 번호 123-45-67890
+ <br>
+<img src="/img/ui.png"> 2011 Watcha.lnc
+
+  
+  
+  
+
+</footer>
 </body>
 </html>
