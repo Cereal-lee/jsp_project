@@ -26,7 +26,7 @@ public class UserDAO_Mariadb {
 			
 			while(rs.next() ) {
 				UserVO vo = new UserVO();
-				vo.setId(rs.getString("id") );
+				vo.setId(rs.getString("userId") );
 				vo.setName(rs.getString("name") );
 				vo.setEmail(rs.getString("email") );
 				vo.setPassword(rs.getString("password") );
@@ -114,7 +114,7 @@ public class UserDAO_Mariadb {
 			
 			while(rs.next()) {
 				vo = new UserVO();
-				vo.setId(rs.getString("id") );
+				vo.setId(rs.getString("userId") );
 				vo.setEmail(rs.getString("email"));
 				vo.setName(rs.getString("name"));
 				vo.setPassword(rs.getString("password"));
