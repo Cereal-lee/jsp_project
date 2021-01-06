@@ -14,8 +14,8 @@ public class Test02 {
 		vo.setDate("2020-01-06");
 		vo.setContext("매우매우 재밌습니다. <br>별점 5점");	
 
-		b.TvAdd(vo);
-		b.bookList().forEach(i->{System.out.println(i);});
+		b.tvAdd(vo);
+		b.tvList().forEach(i->{System.out.println(i);});
 
 		// vo.setBookno(6);
 		// b.bookUpdate(vo);

@@ -5,7 +5,7 @@ import java.util.Date;
 public class TvVO {
 	private int tvId;
 	private String title;
-	private Date date;
+	private String date;
 	private float score;
 	private String context;
 	
@@ -32,12 +32,15 @@ public class TvVO {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public Date getDate() {
+	
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+
+	public void setDate(String date) {
 		this.date = date;
 	}
+
 	public float getScore() {
 		return score;
 	}

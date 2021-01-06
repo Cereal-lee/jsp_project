@@ -3,7 +3,6 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.sql.Date;
 import java.util.List;
@@ -31,7 +30,7 @@ public class TvDAO_Mariadb {
 				TvVO vo = new TvVO();
 				vo.setTvId(rs.getInt("tvId"));
 				vo.setTitle(rs.getString("title"));
-				vo.setDate(rs.getDate("date"));
+				vo.setDate(rs.getString("date"));
 				vo.setScore(rs.getFloat("score"));
 				vo.setContext(rs.getString("context"));
 				
@@ -59,7 +58,7 @@ public class TvDAO_Mariadb {
 			ps = conn.prepareStatement(sql);
 			
 			ps.setString(1, vo.getTitle());
-			ps.setDate(2, vo.getDate());
+			ps.setString(2, vo.getDate());
 			ps.setString(3, vo.getContext());
 			
 			row = ps.executeUpdate();
@@ -111,7 +110,7 @@ public class TvDAO_Mariadb {
 			conn = JDBCUtil.getConnection();
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, vo.getTitle());
-			ps.setDate(2, vo.getDate());
+			ps.setString(2, vo.getDate()); // ?
 			ps.setFloat(3, vo.getScore());
 			ps.setString(4, vo.getContext());
 			ps.setInt(5, vo.getTvId());
@@ -151,7 +150,7 @@ public class TvDAO_Mariadb {
 				TvVO vo = new TvVO();
 				vo.setTvId(rs.getInt("tvId"));
 				vo.setTitle(rs.getString("title"));
-				vo.setDate(rs.getDate("date"));
+				vo.setDate(rs.getString("date"));
 				vo.setScore(rs.getFloat("score"));
 				vo.setContext(rs.getString("context"));
 				list.add(vo);
