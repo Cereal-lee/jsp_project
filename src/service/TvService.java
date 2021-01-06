@@ -15,4 +15,6 @@ public interface TvService {
 	
 	public List<TvVO> tvSearch(String condition, String keyword);
 	
+	public TvVO getTv(int tvId);
+	
 }

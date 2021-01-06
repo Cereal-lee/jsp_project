@@ -3,6 +3,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.sql.Date;
 import java.util.List;
@@ -15,7 +16,7 @@ public class TvDAO_Mariadb {
 	
 	public List<TvVO> tvList() {
 		List<TvVO> list = new ArrayList<TvVO>();
-		String sql = "select * from tv";
+		String sql = "select * from tv order by title desc";
 		
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -165,6 +166,35 @@ public class TvDAO_Mariadb {
 		return list;
 	}
 	
-	
+	public TvVO getTv(int tvId) {
+		String sql = "select * from tv where tvId = ?";
+		
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		TvVO vo = null;
+		
+		try {
+			conn = JDBCUtil.getConnection();
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, tvId);
+			rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				vo = new TvVO();
+				vo.setTvId(rs.getInt("tvId"));
+				vo.setTitle(rs.getString("title"));
+				vo.setDate(rs.getString("date"));
+				vo.setScore(rs.getFloat("score"));
+				vo.setContext(rs.getString("context"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Error :" + e);
+		} finally {
+			JDBCUtil.close(conn, ps, rs);
+		}
+		return vo;
+	}
 	
 }

@@ -13,20 +13,20 @@ import java.sql.SQLException;
 public class JDBCUtil {
 
 	public static Connection getConnection() {
-		Connection con = null;
+		Connection conn = null;
 		
 		Properties p = new Properties();
 		try {
 			p.load(new FileInputStream("C:/eunyoung/workspace_team/jsp_project/WebContent/WEB-INF/lib/dbinfo.txt")); 
 			
-			String driver = p.getProperty("driver"); 
-			String url = p.getProperty("url");
-			String user = p.getProperty("user");
-			String pw = p.getProperty("pw"); 
+			String driver = p.getProperty("_driver"); 
+			String url = p.getProperty("_url");
+			String user = p.getProperty("_user");
+			String pw = p.getProperty("_pw"); 
 			
 			Class.forName(driver);
 			
-			con = DriverManager.getConnection(url,user,pw);
+			conn = DriverManager.getConnection(url,user,pw);
 			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -36,7 +36,7 @@ public class JDBCUtil {
 			e.printStackTrace();
 		}
 		
-		return con;
+		return conn;
 	}
 	
 	public static void close(Connection con , Statement st , ResultSet rs ) { 

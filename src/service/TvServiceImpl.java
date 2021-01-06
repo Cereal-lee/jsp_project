@@ -58,5 +58,13 @@ public class TvServiceImpl implements TvService {
 	public void setDao(TvDAO_Mariadb dao) {
 		this.dao = dao;
 	}
+
+	@Override
+	public TvVO getTv(int tvId) {
+		// TODO Auto-generated method stub
+		return dao.getTv(tvId);
+	}
+	
+	
 	
 }
