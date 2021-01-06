@@ -5,7 +5,7 @@ import java.util.Date;
 public class MovieVO {
 	private int movieId;
 	private String title;
-	private Date date;
+	private String date;
 	private Float score;
 	private String context;
 	
@@ -22,10 +22,10 @@ public class MovieVO {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public Float getScore() {
@@ -45,6 +45,4 @@ public class MovieVO {
 		return "MovieVO [movieId=" + movieId + ", title=" + title + ", date=" + date + ", score=" + score + ", context="
 				+ context + "]";
 	}
-	
-	
 }

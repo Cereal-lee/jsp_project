@@ -18,7 +18,7 @@ public class JDBCUtil {
 		Properties p = new Properties();
 		
 		try {
-			p.load(new FileInputStream("c:/lib/dbinfo.txt"));
+			p.load(new FileInputStream("C:/lib/dbinfo.txt"));
 			
 			String driver = p.getProperty("_driver");
 			String url = p.getProperty("_url");

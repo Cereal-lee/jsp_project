@@ -31,7 +31,7 @@ public class MovieDAO_Mariadb {
 				
 				vo.setMovieId(rs.getInt("movieId"));
 				vo.setTitle(rs.getString("title") );
-				vo.setDate(rs.getDate("date"));
+				vo.setDate(rs.getString("date"));
 				vo.setScore(rs.getFloat("score"));
 				vo.setContext(rs.getString("context"));
 				
@@ -59,7 +59,7 @@ public class MovieDAO_Mariadb {
 			ps = conn.prepareStatement(sql); 
 			
 			ps.setString(1, vo.getTitle() );
-			ps.setDate(2, (Date) vo.getDate() );
+			ps.setString(2, vo.getDate() );
 			ps.setString(3, vo.getContext() );
 			
 			row = ps.executeUpdate();
@@ -124,7 +124,7 @@ public class MovieDAO_Mariadb {
 				
 				vo.setMovieId(rs.getInt("movieId"));
 				vo.setTitle(rs.getString("title"));
-				vo.setDate(rs.getDate("date"));
+				vo.setDate(rs.getString("date"));
 				vo.setScore(rs.getFloat("score"));
 				vo.setContext(rs.getString("context"));
 				
@@ -154,7 +154,7 @@ public class MovieDAO_Mariadb {
 			con = JDBCUtil.getConnection();
 			ps = con.prepareStatement(sql);
 			ps.setString(1, vo.getTitle());
-			ps.setDate(2, (Date)vo.getDate() );
+			ps.setString(2, vo.getDate() );
 			ps.setFloat(3, vo.getScore() );
 			ps.setString(4, vo.getContext());
 			ps.setInt(5, vo.getMovieId());
