@@ -32,18 +32,18 @@
 					</div>
 
 					<!-- Modal body -->
-					<form>
+					<form action="register.do" method="POST">
 					<div class="modal-body">
 						<div class="input-group mb-3">
-   							<input type="text" class="form-control" placeholder="이름">
+   							<input type="text" class="form-control" name ="name" placeholder="이름">
    						</div>
 						<div class="input-group mb-3">
-   							<input type="text" class="form-control" placeholder="이메일">
+   							<input type="text" class="form-control" name ="email" placeholder="이메일">
    						</div>
    						<div class="input-group mb-3">
-   							<input type="text" class="form-control" placeholder="비밀번호">
+   							<input type="password" class="form-control" name ="password" placeholder="비밀번호">
    						</div>
-   						<button type="button" class="btn btn-primary btn-block" style="text-align">회원가입</button>
+   						<input type="submit" class="btn btn-primary btn-block" value="회원가입">
    					</div>
 					</form>
 					
