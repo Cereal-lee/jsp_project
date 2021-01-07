@@ -20,6 +20,7 @@
     <title>WachaPedia</title>
   </head>
   <body>
+  	<!-- header -->
   	<header id="header">
         <div class="container">
             <div class="row">
@@ -37,7 +38,7 @@
   				            <form class="form-inline my-2 my-lg-0" >
 				     			<input class="form-control mr-sm-2" type="text" placeholder="작품을 검색해보세요">
 				     			<button type="button" class="btn btn-link-secondary">로그인</button>
-		  				        <button type="button" class="btn btn-outline-dark">회원가입</button>
+                                <button type="button" class="btn btn-outline-dark">회원가입</button>
 				    		</form>
                         </ul>
                     </nav>    
@@ -47,6 +48,93 @@
         </div>
     </header>
     <!-- //header -->
+    
+    <!-- 영화 슬라이드 시작 -->
+    <div class="movie_chart">
+        <div>
+            <p class="box-op">박스오피스</p>
+        </div>
+                        <div class="chart_cont1">
+                            <div>
+                                <div class="poster">
+                                    <figure>
+                                        <img src="../img//avengers_endgame_1382.jpg" srcset="../img//avengers_endgame_1382.jpg 2x" alt="어벤져스 엔드게임">
+                                    </figure>
+                                    <div class="rank"><strong>1</strong></div>
+                                </div>
+                                <div class="infor">
+                                    <h3><strong>어벤져스 엔드게임</strong></h3>
+                                    <div class="infor_btn">
+                                        <a href="#">2019</a><br>
+                                        <a href="#">평점 9.49</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="poster">
+                                    <figure>
+                                        <img src="../img/avengers_infinity_war_1382.jpg" srcset="../img/avengers_infinity_war_1382.jpg 2x" alt="어벤져스 인피니티 워">
+                                    </figure>
+                                    <div class="rank"><strong>2</strong></div>
+                                </div>
+                                <div class="infor">
+                                    <h3><strong>어벤져스 인피니티 워</strong></h3>
+                                    <div class="infor_btn">
+                                        <a href="#">2018</a><br>
+                                        <a href="#">평점 9.08</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="poster">
+                                    <figure>
+                                        <img src="../img/lord_of_the_rings1400.jpg" srcset="../img/lord_of_the_rings1400.jpg 2x" alt="반지의 제왕: 왕의 귀환">
+                                    </figure>
+                                    <div class="rank"><strong>3</strong></div>
+                                </div>
+                                <div class="infor">
+                                    <h3><strong>반지의 제왕: 왕의 귀환</strong></h3>
+                                    <div class="infor_btn">
+                                        <a href="#">2003</a><br>
+                                        <a href="#">평점 9.37</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="poster">
+                                    <figure>
+                                        <img src="../img/pirates_of_the_caribbean_dead_men_tell_no_tales_1382.jpg" srcset="../img/pirates_of_the_caribbean_dead_men_tell_no_tales_1382.jpg 2x" alt="캐리비안의 해적: 죽은 자는 말이 없다">
+                                    </figure>
+                                    <div class="rank"><strong>4</strong></div>
+                                </div>
+                                <div class="infor">
+                                    <h3><strong>캐리비안의 해적: 죽은 자는 말이 없다</strong></h3>
+                                    <div class="infor_btn">
+                                        <a href="#">2017</a><br>
+                                        <a href="#">평점 8.58</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="poster">
+                                    <figure>
+                                        <img src="../img/wonder_woman_1382.jpg" srcset="../img/wonder_woman_1382.jpg 2x" alt="원더우먼: 1984">
+                                    </figure>
+                                    <div class="rank"><strong>5</strong></div>
+                                </div>
+                                <div class="infor">
+                                    <h3><strong>원더 우먼 1984</strong></h3>
+                                    <div class="infor_btn">
+                                        <a href="#">2020</a>
+                                        <a href="#">평점 7.58</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- //영화슬라이드 -->
 
     <!-- Optional JavaScript; choose one of the two! -->
 
