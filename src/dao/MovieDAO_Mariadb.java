@@ -31,7 +31,7 @@ public class MovieDAO_Mariadb {
 				
 				vo.setMovieId(rs.getInt("movieId"));
 				vo.setTitle(rs.getString("title") );
-				vo.setDate(rs.getDate("date"));
+				vo.setDate(rs.getString("date"));
 				vo.setScore(rs.getFloat("score"));
 				vo.setContext(rs.getString("context"));
 				
@@ -47,7 +47,7 @@ public class MovieDAO_Mariadb {
 	}
 	
 	public void movieAdd(MovieVO vo) {
-		String sql = "insert into movie(title, date, context) values(?,?,?)";
+		String sql = "insert into movie(title, date, context, score) values(?,?,?,?)";
 		
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -59,8 +59,9 @@ public class MovieDAO_Mariadb {
 			ps = conn.prepareStatement(sql); 
 			
 			ps.setString(1, vo.getTitle() );
-			ps.setDate(2, (Date) vo.getDate() );
+			ps.setString(2, vo.getDate() );
 			ps.setString(3, vo.getContext() );
+			ps.setDouble(4, vo.getScore() );
 			
 			row = ps.executeUpdate();
 			
@@ -75,6 +76,40 @@ public class MovieDAO_Mariadb {
 		}
 	}
 	
+	public MovieVO getMovie(int i) {
+		String sql = "select * from movie where movieId = ?";
+		
+		Connection con = null;
+		PreparedStatement ps = null; // SQL 관리
+		ResultSet rs = null;
+		MovieVO vo = null;
+		
+		try {
+			con = JDBCUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, i);
+			rs = ps.executeQuery(); // 가지고있는거 사용할때 사용
+			
+			// 결과값 처리
+			while(rs.next()) {
+				vo = new MovieVO();
+				vo.setMovieId(rs.getInt("movieId"));
+				vo.setTitle(rs.getString("title"));
+				vo.setDate(rs.getString("date"));
+				vo.setScore(rs.getFloat("score"));
+				vo.setContext(rs.getString("context"));
+				
+			} 
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Error :" + e);
+		} finally {
+
+			JDBCUtil.close(con, ps, rs); // 자원반납 필수
+		}
+		return vo;
+	}
 	
 	public void movieDelete(int movieId) {
 		String sql = "delete from movie where movieId = ?";
@@ -124,7 +159,7 @@ public class MovieDAO_Mariadb {
 				
 				vo.setMovieId(rs.getInt("movieId"));
 				vo.setTitle(rs.getString("title"));
-				vo.setDate(rs.getDate("date"));
+				vo.setDate(rs.getString("date"));
 				vo.setScore(rs.getFloat("score"));
 				vo.setContext(rs.getString("context"));
 				
@@ -154,8 +189,8 @@ public class MovieDAO_Mariadb {
 			con = JDBCUtil.getConnection();
 			ps = con.prepareStatement(sql);
 			ps.setString(1, vo.getTitle());
-			ps.setDate(2, (Date)vo.getDate() );
-			ps.setFloat(3, vo.getScore() );
+			ps.setString(2, vo.getDate() );
+			ps.setDouble(3, vo.getScore() );
 			ps.setString(4, vo.getContext());
 			ps.setInt(5, vo.getMovieId());
 			
