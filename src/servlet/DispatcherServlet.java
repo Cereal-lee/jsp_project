@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.security.MessageDigest;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,10 +27,12 @@ public class DispatcherServlet extends HttpServlet {
 		
 		if(action.equals("/tvshow.do")) {
 			getServletContext().getRequestDispatcher("/tvshow.jsp").forward(request, response);
+			return;
 		}
 		
 		if(action.equals("/book.do")) {
 			getServletContext().getRequestDispatcher("/book.jsp").forward(request, response);
+			return;
 		}
 		
 		if(action.equals("/register.do")) {
@@ -39,16 +43,39 @@ public class DispatcherServlet extends HttpServlet {
 			String email = request.getParameter("email");
 			String password = request.getParameter("password");
 			
+			String pwd = testSHA256(password);
+			
 			UserVO vo = new UserVO();
 			
 			vo.setName(name);
 			vo.setEmail(email);
-			vo.setPassword(password);
+			vo.setPassword(pwd);
 			
 			service.userAdd(vo);
 			
 			response.sendRedirect("/");
+			return;
 		}
 	}
+	
+	public static String testSHA256(String pwd) {
+		try{
 
+			MessageDigest digest = MessageDigest.getInstance("SHA-256");
+			byte[] hash = digest.digest(pwd.getBytes("UTF-8"));
+			StringBuffer hexString = new StringBuffer();
+
+			for (int i = 0; i < hash.length; i++) {
+				String hex = Integer.toHexString(0xff & hash[i]);
+				if(hex.length() == 1) hexString.append('0');
+				hexString.append(hex);
+			}
+
+			//출력
+			return hexString.toString();
+			
+		} catch(Exception ex){
+			throw new RuntimeException(ex);
+		}
+	}
 }

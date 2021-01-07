@@ -32,18 +32,18 @@
 					</div>
 
 					<!-- Modal body -->
-					<form action="register.do" method="POST">
+					<form action="register.do" method="POST" name="signForm" onsubmit="return confirm('회원가입 하시겠습니까?')">
 					<div class="modal-body">
 						<div class="input-group mb-3">
    							<input type="text" class="form-control" name ="name" placeholder="이름">
    						</div>
 						<div class="input-group mb-3">
-   							<input type="text" class="form-control" name ="email" placeholder="이메일">
+   							<input type="email" class="form-control" name ="email" placeholder="이메일">
    						</div>
    						<div class="input-group mb-3">
    							<input type="password" class="form-control" name ="password" placeholder="비밀번호">
    						</div>
-   						<input type="submit" class="btn btn-primary btn-block" value="회원가입">
+   						<input type="submit" class="btn btn-primary btn-block" id="btnSign" value="회원가입">
    					</div>
 					</form>
 					
@@ -100,5 +100,32 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
 		integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
 		crossorigin="anonymous"></script>
+		
+	<script type="text/javascript">
+		$('#btnSign').on('click', function(e){
+			e.preventDefault();
+			
+			if (!$('input[name="name"]').val()) {
+				alert('이름을 입력해주세요');
+				$('input[name="name"]').focus();
+				return false;
+			}
+			
+			if (!$('input[name="email"]').val()) {
+				alert('이메일을 입력해주세요');
+				$('input[name="email"]').focus();
+				return false;
+			}
+			
+			if (!$('input[name="password"]').val()) {
+				alert('비밀번호를 입력해주세요');
+				$('input[name="password"]').focus();
+				return false;
+			}
+			
+			$('form[name=signForm]').submit();
+		});
+	</script>
+	
 </body>
 </html>
