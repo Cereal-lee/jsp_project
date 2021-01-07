@@ -39,12 +39,12 @@ public class JDBCUtil {
 		return conn;
 	}
 	
-	public static void close(Connection con , Statement st , ResultSet rs ) { 
+	public static void close(Connection conn , Statement st , ResultSet rs ) { 
 		
 		try {
 			if(rs != null) rs.close(); 
 			if(st != null) st.close();
-			if(con != null) con.close();
+			if(conn != null) conn.close();
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
