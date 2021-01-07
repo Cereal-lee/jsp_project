@@ -37,12 +37,13 @@ class tvTest {
 		vo.setTitle("펜트하우스");
 		vo.setDate("2020-11-12");
 		vo.setContext("펜트하우스 재밌어요 <br> 막장드라마지만 재밌음~");
+		vo.setScore((float) 3.5);
 		
 		service.tvAdd(vo);
 		System.out.println("TV정보 등록 완료");
 	}
 	
-	@Test
+//	@Test
 	void update() {
 		TvVO vo = service.getTv(1);
 		if (vo != null) {
@@ -59,15 +60,33 @@ class tvTest {
 	
 //	@Test
 	void delete() {
-		TvVO vo = service.getTv(1);
+		TvVO vo = service.getTv(7);
 		if (vo != null) {
 			System.out.println(vo);
-			service.bookDelete(vo.getBookno());
-			System.out.println("===변경 후=+=");
+			service.tvDelete(vo.getTvId());
+			System.out.println("----삭제완료----");
 			System.out.println(vo);
 		}
-		
-		
 	}
+	
+//	@Test
+	void getTv() { 
+		System.out.println(service.getTv(8)); //8번 tv를 출력해라
+	}
+	
+//	@Test
+	void search() {
+	System.out.println("+++검색+++");
+	
+	List<TvVO> list = service.tvSearch("title", "스위"); //title에서 '스위'가 포함된 걸 검색한다
+	//검색결과가 list 안에 들어 있음...
+	
+	list.forEach(i -> {System.out.println(i);} ); //lambda
+	
+//	for(BookVO data : list) { //list 안에 들어간 데이터가 BookVO 타입이야
+//		System.out.println(data.getTitle());
+//		System.out.printf("%s:%d:%s %n", data.getTitle(), data.getPrice(), data.getPublisher());
+//	}					//문자열:정수:문자열 줄바꿈 형태로 출력하겠다 - 가격이 정수형이니까 %d 써줌
+}
 	
 }

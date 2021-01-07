@@ -47,7 +47,7 @@ public class TvDAO_Mariadb {
 	}
 	
 	public void tvAdd(TvVO vo) {
-		String sql = "insert into tv (title, date, context) values (?, ?, ?)";
+		String sql = "insert into tv (title, date, context, score) values (?, ?, ?, ?)";
 		
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -61,6 +61,7 @@ public class TvDAO_Mariadb {
 			ps.setString(1, vo.getTitle());
 			ps.setString(2, vo.getDate());
 			ps.setString(3, vo.getContext());
+			ps.setFloat(4, vo.getScore());
 			
 			row = ps.executeUpdate();
 			
@@ -134,6 +135,7 @@ public class TvDAO_Mariadb {
 		int row = 0;
 		
 		String sql = "select * from tv where " + condition + " like ? order by title desc";
+		// select * from tv where title like '%펜%';
 		
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -149,6 +151,7 @@ public class TvDAO_Mariadb {
 			
 			while(rs.next()) {
 				TvVO vo = new TvVO();
+				
 				vo.setTvId(rs.getInt("tvId"));
 				vo.setTitle(rs.getString("title"));
 				vo.setDate(rs.getString("date"));
