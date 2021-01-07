@@ -12,14 +12,15 @@
 </head>
 <body>
 	<div class="container">
-		<button type="button" onclick="location.href='/'">메인</button>
-		<button type="button" onclick="location.href='/">영화</button>
-		<button type="button" onclick="location.href='/tvshow.do'">TV</button>
-		<button type="button" onclick="location.href='/book.do'">책</button>
+		<button type="button" onclick="location.href='/' ">메인</button>
+		<button type="button" onclick="location.href='/' ">영화</button>
+		<button type="button" onclick="location.href='/tvshow.do' ">TV</button>
+		<button type="button" onclick="location.href='/book.do' ">책</button>
 		<button type="button" class="btn btn-primary" data-toggle="modal"
 			data-target="#signIn">회원가입</button>
 		<button type="button" class="btn btn-primary" data-toggle="modal"
 			data-target="#login">로그인</button>
+
 		<div class="modal" id="signIn">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -31,30 +32,31 @@
 					</div>
 
 					<!-- Modal body -->
-					<form action="register.do" method="POST" name="frm" 
-					onsubmit="return confirm('회원가입 하시겠습니까?')">
-						<div class="modal-body">
-
-							<div class="input-group mb-3">
-								<input type="text" class="form-control" name="name" placeholder="이름">
-							</div>
-							<div class="input-group mb-3">
-								<input type="email" class="form-control" name="email" placeholder="이메일">
-							</div>
-							<div class="input-group mb-3">
-								<input type="password" class="form-control" name="password" placeholder="비밀번호">
-							</div>
-							<input type="submit" value="회원가입" class="btn btn-primary btn-block">
-						</div>
+					<form action="register.do" method="POST" name="signForm" onsubmit="return confirm('회원가입 하시겠습니까?')">
+					<div class="modal-body">
+						<div class="input-group mb-3">
+   							<input type="text" class="form-control" name ="name" placeholder="이름">
+   						</div>
+						<div class="input-group mb-3">
+   							<input type="email" class="form-control" name ="email" placeholder="이메일">
+   						</div>
+   						<div class="input-group mb-3">
+   							<input type="password" class="form-control" name ="password" placeholder="비밀번호">
+   						</div>
+   						<input type="submit" class="btn btn-primary btn-block" id="btnSign" value="회원가입">
+   					</div>
 					</form>
+					
 					<!-- Modal footer -->
 					<div class="modal-footer">
-						<button type="button" class="btn btn-danger btn-block"
-							data-dismiss="modal">닫기</button>
+						<button type="button" class="btn btn-danger btn-block" data-dismiss="modal">닫기</button>
 					</div>
+
 				</div>
 			</div>
 		</div>
+
+
 		<div class="modal" id="login">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -67,27 +69,26 @@
 
 					<!-- Modal body -->
 					<form>
-						<div class="modal-body">
-							<div class="input-group mb-3">
-								<input type="text" class="form-control" placeholder="이메일">
-							</div>
-							<div class="input-group mb-3">
-								<input type="text" class="form-control" placeholder="비밀번호">
-							</div>
-						<button type="button" class="btn btn-primary btn-block">로그인</button>
-				</div>
-				</form>
-
-				<!-- Modal footer -->
-				<div class="modal-footer">
-						<button type="button" class="btn btn-danger btn-block"
-							data-dismiss="modal">닫기</button>
+					<div class="modal-body">
+						<div class="input-group mb-3">
+   							<input type="text" class="form-control" placeholder="이메일">
+   						</div>
+   						<div class="input-group mb-3">
+   							<input type="text" class="form-control" placeholder="비밀번호">
+   						</div>
+   						<button type="button" class="btn btn-primary btn-block" style="text-align">로그인</button>
+   					</div>
+					</form>
+					
+					<!-- Modal footer -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger btn-block" data-dismiss="modal">닫기</button>
 					</div>
-				</div>
 
+				</div>
 			</div>
 		</div>
-	</div>
+
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>
@@ -99,5 +100,32 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
 		integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
 		crossorigin="anonymous"></script>
+		
+	<script type="text/javascript">
+		$('#btnSign').on('click', function(e){
+			e.preventDefault();
+			
+			if (!$('input[name="name"]').val()) {
+				alert('이름을 입력해주세요');
+				$('input[name="name"]').focus();
+				return false;
+			}
+			
+			if (!$('input[name="email"]').val()) {
+				alert('이메일을 입력해주세요');
+				$('input[name="email"]').focus();
+				return false;
+			}
+			
+			if (!$('input[name="password"]').val()) {
+				alert('비밀번호를 입력해주세요');
+				$('input[name="password"]').focus();
+				return false;
+			}
+			
+			$('form[name=signForm]').submit();
+		});
+	</script>
+	
 </body>
 </html>
