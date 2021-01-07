@@ -22,7 +22,8 @@
 
 		<c:choose>
 			<c:when test="${not empty login }">
-				<button>logout</button>
+				<button type="button" onclick="location.href='/logout.do' ">로그아웃</button>
+				<p>${login.name}님 환영합니다.</p>
 			</c:when>
 
 			<c:otherwise>

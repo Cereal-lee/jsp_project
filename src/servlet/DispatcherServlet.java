@@ -87,6 +87,17 @@ public class DispatcherServlet extends HttpServlet {
 			
 			return;
 		}
+		
+		if(action.equals("/logout.do")) {
+			HttpSession session = request.getSession();
+			if (session != null) { 
+				session.invalidate(); 
+			}
+			response.sendRedirect("/");
+
+			return;
+		}
+		
 	}
 	
 	public static String testSHA256(String pwd) {
