@@ -8,3 +8,7 @@
 
 ### book 관련 작성, DAO 테스트 - 완료
 * test 패키지에서 bookTest.java 참조
+
+### web부분 적용 완료 (index.jsp & DispatcherServlet 등)
+
+### impl 파일명 수정 (일괄 -impl)

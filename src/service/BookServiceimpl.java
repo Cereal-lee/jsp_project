@@ -5,15 +5,15 @@ import java.util.List;
 import dao.BookDAO_Mariadb;
 import vo.BookVO;
 
-public class BookServiceImpl implements BookService {
+public class BookServiceimpl implements BookService {
 	private BookDAO_Mariadb dao = null; //DB연동
 	
-	public BookServiceImpl() {
+	public BookServiceimpl() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public BookServiceImpl(BookDAO_Mariadb dao) { //using fields
+	public BookServiceimpl(BookDAO_Mariadb dao) { //using fields
 		super();
 		this.dao = dao;
 	}

@@ -13,7 +13,7 @@ import junit.extensions.*;
 
 import dao.TvDAO_Mariadb;
 import service.TvService;
-import service.TvServiceImpl;
+import service.TvServiceimpl;
 import vo.TvVO;
 
 class tvTest {
@@ -23,7 +23,7 @@ class tvTest {
 	void setUp() throws Exception {
 		
 		TvDAO_Mariadb dao = new TvDAO_Mariadb();
-		service = new TvServiceImpl(dao);
+		service = new TvServiceimpl(dao);
 	}
 	
 //	@Test
