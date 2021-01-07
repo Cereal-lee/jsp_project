@@ -26,10 +26,11 @@ public class UserDAO_Mariadb {
 			
 			while(rs.next() ) {
 				UserVO vo = new UserVO();
-				vo.setId(rs.getString("userId") );
+				vo.setId(rs.getInt("userId") );
 				vo.setName(rs.getString("name") );
 				vo.setEmail(rs.getString("email") );
 				vo.setPassword(rs.getString("password") );
+				vo.setRole(rs.getString("role") );
 				
 				list.add(vo);
 			}
@@ -43,7 +44,7 @@ public class UserDAO_Mariadb {
 	}
 	
 	public void userAdd(UserVO vo) {
-		String sql = "insert into user(name, email, password) values(?,?,?)";
+		String sql = "insert into user(name, email, password, role) values(?,?,?,?)";
 		
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -57,6 +58,7 @@ public class UserDAO_Mariadb {
 			ps.setString(1, vo.getName() );
 			ps.setString(2, vo.getEmail() );
 			ps.setString(3, vo.getPassword() );
+			ps.setString(4, vo.getRole() );
 			
 			row = ps.executeUpdate();
 			
@@ -88,10 +90,11 @@ public class UserDAO_Mariadb {
 		 
 			while(rs.next() ) {
 				vo = new UserVO();
-				vo.setId(rs.getString("userId"));
+				vo.setId(rs.getInt("userId"));
 				vo.setEmail(rs.getString("email"));
 				vo.setName(rs.getString("name"));
 				vo.setPassword(rs.getString("password"));
+				vo.setRole(rs.getString("role") );
 				
 			}
 		
@@ -150,10 +153,11 @@ public class UserDAO_Mariadb {
 			
 			while(rs.next()) {
 				vo = new UserVO();
-				vo.setId(rs.getString("userId") );
+				vo.setId(rs.getInt("userId") );
 				vo.setEmail(rs.getString("email"));
 				vo.setName(rs.getString("name"));
 				vo.setPassword(rs.getString("password"));
+				vo.setRole(rs.getString("role") );
 			}
 			
 		} catch(Exception e) {
@@ -186,10 +190,11 @@ public class UserDAO_Mariadb {
 			while(rs.next() ) {
 				UserVO vo = new UserVO();
 				
-				vo.setId(rs.getString("userId"));
+				vo.setId(rs.getInt("userId"));
 				vo.setEmail(rs.getString("email"));
 				vo.setName(rs.getString("name"));
 				vo.setPassword(rs.getString("password"));
+				vo.setRole(rs.getString("role") );
 
 				list.add(vo);
 			}

@@ -30,9 +30,10 @@ public class UserTest {
 //	@Test
 	void add() {
 		UserVO vo = new UserVO();
-		vo.setEmail("test4@test.com");
-		vo.setName("테스트씨");
+		vo.setEmail("admin@test.com");
+		vo.setName("admin");
 		vo.setPassword("qwer1234");
+		vo.setRole("admin");
 		
 		service.userAdd(vo);
 		System.out.println("등록 되었습니다.");
@@ -48,7 +49,7 @@ public class UserTest {
 		UserVO vo = service.getUser(4);
 		if(vo != null) {
 			System.out.println(vo);
-			service.userDelete(4);
+			service.userDelete(vo.getId());
 			System.out.println("삭제 되었습니다.");
 		} else {
 			System.out.println("존재 하지 않습니다.");

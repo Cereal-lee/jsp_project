@@ -15,4 +15,5 @@ public interface UserService {
 	public UserVO getUser(int id);
 
 	public List<UserVO> searchUser(String condition, String keyword);
+	
 }
