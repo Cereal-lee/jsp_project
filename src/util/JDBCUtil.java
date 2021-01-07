@@ -30,7 +30,6 @@ public class JDBCUtil {
 			
 			conn = DriverManager.getConnection(url,user,password);
 			
-			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -43,7 +42,7 @@ public class JDBCUtil {
 		return conn;
 	}
 	
-	public static void close(Connection conn, Statement st , ResultSet rs) {	// ¹Ý³³ÇÒ°÷
+	public static void close(Connection conn, Statement st , ResultSet rs) {	// ë°˜ë‚©í• ê³³
 		
 		try {
 			if(rs != null) rs.close();

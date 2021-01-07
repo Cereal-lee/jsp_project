@@ -20,81 +20,88 @@ import vo.UserVO;
 public class DispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void service(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
-
+		
 		String url = request.getRequestURI();
 		String action = url.substring(url.lastIndexOf('/'));
-
-		if (action.equals("/tvshow.do")) {
+		
+		if(action.equals("/tvshow.do")) {
 			getServletContext().getRequestDispatcher("/tvshow.jsp").forward(request, response);
 			return;
 		}
-
-		if (action.equals("/book.do")) {
+		
+		if(action.equals("/book.do")) {
 			getServletContext().getRequestDispatcher("/book.jsp").forward(request, response);
 			return;
 		}
-		if (action.equals("/login.do")) {
-			
-			String email = request.getParameter("email");
-			String password = request.getParameter("password");
-			
-			String pwd = testSHA256(password);
-			
+		
+		if(action.equals("/register.do")) {
 			UserDAO_Mariadb dao = new UserDAO_Mariadb();
 			UserService service = new UserServiceimpl(dao);
-			UserVO login = service.login(email, pwd);
 			
-			if(login != null) {
-				HttpSession session =request.getSession();
-				session.setAttribute("login", login);
-				response.sendRedirect("/");
-			}else {
-				PrintWriter out = response.getWriter();
-				
-				out.println("<script>alert('∑Œ±◊¿Œ ¡§∫∏∏¶ »Æ¿Œ«ÿ¡÷ººø‰'); location.href='/'</script>");
-				out.flush();
-				out.close();
-			}
-			return;
-		}
-		if(action.equals("/logout.do")) {
-			HttpSession session = request.getSession();
-			if(session != null) {
-				session.invalidate();
-			}
-			response.sendRedirect("/");
-			return;
-		}
-
-		if (action.equals("/register.do")) {
-			UserDAO_Mariadb dao = new UserDAO_Mariadb();
-			UserService service = new UserServiceimpl(dao);
-
 			String name = request.getParameter("name");
 			String email = request.getParameter("email");
 			String password = request.getParameter("password");
-
+			
 			String pwd = testSHA256(password);
-
+			
 			UserVO vo = new UserVO();
-
+			
 			vo.setName(name);
 			vo.setEmail(email);
 			vo.setPassword(pwd);
-
+			
 			service.userAdd(vo);
-
+			
 			response.sendRedirect("/");
 			return;
 		}
-	}
+		
+		if(action.equals("/login.do")) {
+			
+			String email = request.getParameter("email");
+			String password = request.getParameter("password");
+			
+			String pwd = testSHA256(password);
+			
+			UserDAO_Mariadb dao = new UserDAO_Mariadb();
+			UserService service = new UserServiceimpl(dao);
+			
+			UserVO login = service.login(email, pwd);
+			
+			if (login != null) {
+				HttpSession session = request.getSession();
+				session.setAttribute("login", login);
+				response.sendRedirect("/");
 
+			} else {
+				PrintWriter out = response.getWriter();
+				 
+				out.println("<script>alert('Î°úÍ∑∏Ïù∏ Ï†ïÎ≥¥Î•º ÌôïÏù∏Ìï¥Ï£ºÏÑ∏Ïöî.'); location.href='/';</script>");
+				out.flush();
+				out.close();
+				
+			}
+			
+			return;
+		}
+		
+		if(action.equals("/logout.do")) {
+			HttpSession session = request.getSession();
+			if (session != null) { 
+				session.invalidate(); 
+			}
+			response.sendRedirect("/");
+
+			return;
+		}
+		
+	}
+	
 	public static String testSHA256(String pwd) {
-		try {
+		try{
 
 			MessageDigest digest = MessageDigest.getInstance("SHA-256");
 			byte[] hash = digest.digest(pwd.getBytes("UTF-8"));
@@ -102,15 +109,14 @@ public class DispatcherServlet extends HttpServlet {
 
 			for (int i = 0; i < hash.length; i++) {
 				String hex = Integer.toHexString(0xff & hash[i]);
-				if (hex.length() == 1)
-					hexString.append('0');
+				if(hex.length() == 1) hexString.append('0');
 				hexString.append(hex);
 			}
 
-			// √‚∑¬
+			//Ï∂úÎ†•
 			return hexString.toString();
-
-		} catch (Exception ex) {
+			
+		} catch(Exception ex){
 			throw new RuntimeException(ex);
 		}
 	}
