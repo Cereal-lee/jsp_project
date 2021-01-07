@@ -31,14 +31,15 @@
 					</div>
 
 					<!-- Modal body -->
-					<form action="register.do" method="POST">
+					<form action="register.do" method="POST" name="frm" 
+					onsubmit="return confirm('회원가입 하시겠습니까?')">
 						<div class="modal-body">
 
 							<div class="input-group mb-3">
 								<input type="text" class="form-control" name="name" placeholder="이름">
 							</div>
 							<div class="input-group mb-3">
-								<input type="text" class="form-control" name="email" placeholder="이메일">
+								<input type="email" class="form-control" name="email" placeholder="이메일">
 							</div>
 							<div class="input-group mb-3">
 								<input type="password" class="form-control" name="password" placeholder="비밀번호">
