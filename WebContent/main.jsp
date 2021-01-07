@@ -8,8 +8,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 <style>
 .card {
-width:100;
-height:100;
+width:170;
+height:220;
 margin-top:30px;
 margin-left:100px;
 margin-right:50px;
@@ -40,7 +40,7 @@ color:ff0000;
 <div class="tit">영화</div>
   <div class="carousel-inner"> 
     <div class="carousel-item active"> 
-      <a class="card"><img src="./img/harrystone.jpg" width="170" height="220" alt="해리포터" >해리포터와 마법사의 돌<br>2001</a> 
+      <div class="card"><img src="./img/harrystone.jpg" width="170" height="220" alt="해리포터" >해리포터와 마법사의 돌<br>2001<br>평점 : 4.5</div> 
   <a class="card"><img src="..." alt="...">만나서</a>
 <a class="card" ><img src="..." alt="...">반가워요</a> 
 <a class="card" ><img src="..." alt="...">잘</a> 
@@ -78,7 +78,7 @@ color:ff0000;
 <div class="tit">TV 프로그램</div>
   <div class="carousel-inner"> 
     <div class="carousel-item active"> 
-      <a class="card"><img src="./img/sweethome.jpg" width="150" height="200" alt="스위트홈">스위트홈<br>2020</a> 
+      <a class="card"><img src="./img/sweethome.jpg" width="170" height="220" alt="스위트홈">스위트홈<br>2020</a> 
   <a class="card"><img src="..." alt="...">만나서</a>
 <a class="card" ><img src="..." alt="...">반가워요</a> 
 <a class="card" ><img src="..." alt="...">잘</a> 
