@@ -22,10 +22,10 @@
 		<div class="carousel-inner" style="margin-left:25px;">
 			<div class="carousel-item active">
 				<a class="card cardImg"><img src="/img/harrystone.jpg" alt="해리포터">해리포터와 마법사의 돌<br>2001</a> 
-				<a class="card cardImg"><img src="/img/harrystone.jpg" alt="해리포터">해리포터와 마법사의 돌<br>2001</a> 
-				<a class="card cardImg"><img src="/img/harrystone.jpg" alt="해리포터">해리포터와 마법사의 돌<br>2001</a> 
-				<a class="card cardImg"><img src="/img/harrystone.jpg" alt="해리포터">해리포터와 마법사의 돌<br>2001</a> 
-				<a class="card cardImg"><img src="/img/harrystone.jpg" alt="해리포터">해리포터와 마법사의 돌<br>2001</a> 
+				<a class="card cardImg"><img src="/img/bts.jpg" alt="해리포터">해리포터와 마법사의 돌<br>2001</a> 
+				<a class="card cardImg"><img src="/img/god.jpg" alt="해리포터">해리포터와 마법사의 돌<br>2001</a> 
+				<a class="card cardImg"><img src="/img/inter.jpg" alt="해리포터">해리포터와 마법사의 돌<br>2001</a> 
+				<a class="card cardImg"><img src="/img/girl.jpg" alt="해리포터">해리포터와 마법사의 돌<br>2001</a> 
 			</div>
 			<div class="carousel-item">
 				<a class="card"><img src="..." alt="...">안녕하세요</a> <a

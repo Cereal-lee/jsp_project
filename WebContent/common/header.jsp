@@ -58,10 +58,10 @@
 										<form class="form-inline my-2 my-lg-0">
 											<input class="form-control mr-sm-2" type="text"
 												placeholder="작품을 검색해보세요">
-											<button type="button" class="btn btn-outline-dark"
-												data-toggle="modal" data-target="#signIn">회원가입</button>
 											<button type="button" class="btn btn-link-secondary"
 												data-toggle="modal" data-target="#login">로그인</button>
+											<button type="button" class="btn btn-outline-dark"
+												data-toggle="modal" data-target="#signIn">회원가입</button>
 										</form>
 										</div>
 										<div class="modal" id="signIn">
