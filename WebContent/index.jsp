@@ -102,27 +102,41 @@
 		crossorigin="anonymous"></script>
 		
 	<script type="text/javascript">
-		$('#btnSign').on('click', function(e){
+	
+		function isEmail(value) {
+			let regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+			return regExp.test(value); // 형식에 맞는 경우 true 리턴	
+		}
+
+		$('#btnSign').on('click', function(e) {
 			e.preventDefault();
 			
+			let email = $.trim( $('input[name="email"]').val() );
+
 			if (!$('input[name="name"]').val()) {
 				alert('이름을 입력해주세요');
 				$('input[name="name"]').focus();
 				return false;
 			}
-			
-			if (!$('input[name="email"]').val()) {
+
+			if (!email) {
 				alert('이메일을 입력해주세요');
 				$('input[name="email"]').focus();
 				return false;
 			}
 			
+			if ( !isEmail(email) ) {
+				alert('올바른 형식의 이메일을 입력해주세요');
+				$('input[name="email"]').focus();
+				return false;
+			}
+
 			if (!$('input[name="password"]').val()) {
 				alert('비밀번호를 입력해주세요');
 				$('input[name="password"]').focus();
 				return false;
 			}
-			
+
 			$('form[name=signForm]').submit();
 		});
 	</script>
