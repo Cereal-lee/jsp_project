@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.security.MessageDigest;
 
 import javax.servlet.ServletException;
@@ -8,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.UserDAO_Mariadb;
 import service.UserService;
@@ -54,6 +56,35 @@ public class DispatcherServlet extends HttpServlet {
 			service.userAdd(vo);
 			
 			response.sendRedirect("/");
+			return;
+		}
+		
+		if(action.equals("/login.do")) {
+			
+			String email = request.getParameter("email");
+			String password = request.getParameter("password");
+			
+			String pwd = testSHA256(password);
+			
+			UserDAO_Mariadb dao = new UserDAO_Mariadb();
+			UserService service = new UserServiceimpl(dao);
+			
+			UserVO login = service.login(email, pwd);
+			
+			if (login != null) {
+				HttpSession session = request.getSession();
+				session.setAttribute("login", login);
+				response.sendRedirect("/");
+
+			} else {
+				PrintWriter out = response.getWriter();
+				 
+				out.println("<script>alert('로그인 정보를 확인해주세요.'); location.href='/';</script>");
+				out.flush();
+				out.close();
+				
+			}
+			
 			return;
 		}
 	}

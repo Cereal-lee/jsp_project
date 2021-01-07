@@ -5,6 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>왓챠피디아</title>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
@@ -56,7 +59,7 @@
 			</div>
 		</div>
 
-
+	<c:if test="${empty login}">
 		<div class="modal" id="login">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -68,15 +71,15 @@
 					</div>
 
 					<!-- Modal body -->
-					<form>
+					<form action="login.do" method="POST" name="loginForm">
 					<div class="modal-body">
 						<div class="input-group mb-3">
-   							<input type="text" class="form-control" placeholder="이메일">
+   							<input type="email" class="form-control" name ="email" placeholder="이메일">
    						</div>
    						<div class="input-group mb-3">
-   							<input type="text" class="form-control" placeholder="비밀번호">
+   							<input type="password" class="form-control" name ="password" placeholder="비밀번호">
    						</div>
-   						<button type="button" class="btn btn-primary btn-block" style="text-align">로그인</button>
+   						<input type="submit" class="btn btn-primary btn-block" id="login" value="로그인">
    					</div>
 					</form>
 					
@@ -88,6 +91,10 @@
 				</div>
 			</div>
 		</div>
+	</c:if>
+	<c:if test="${!empty login }">
+		<button>logout</button>
+	</c:if>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
