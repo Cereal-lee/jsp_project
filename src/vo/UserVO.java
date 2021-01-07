@@ -1,25 +1,24 @@
 package vo;
 
 public class UserVO {
-	private String id;
+	private int id;
 	private String name;
 	private String email;
 	private String password;
+	private String role;
 	
-	public UserVO() {
-		super();
-		// TODO Auto-generated constructor stub
+	
+	
+	public String getRole() {
+		return role;
 	}
-	
-	@Override
-	public String toString() {
-		return "UserVo [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + "]";
+	public void setRole(String role) {
+		this.role = role;
 	}
-	
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -40,6 +39,13 @@ public class UserVO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	
+	@Override
+	public String toString() {
+		return "UserVo [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + "]";
+	}
+	
 	
 	
 	

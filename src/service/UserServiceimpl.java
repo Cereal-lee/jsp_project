@@ -5,19 +5,17 @@ import java.util.List;
 import dao.UserDAO_Mariadb;
 import vo.UserVO;
 
-public class UserServiceImpl implements UserService {
+public class UserServiceimpl implements UserService {
 	private UserDAO_Mariadb dao = null;
 	
-	public UserServiceImpl() {
-		super();
-		// TODO Auto-generated constructor stub
+	public UserServiceimpl() {
 	}
-
-	public UserServiceImpl(UserDAO_Mariadb dao) {
+	
+	public UserServiceimpl(UserDAO_Mariadb dao) {
 		super();
 		this.dao = dao;
 	}
-
+	
 	public UserDAO_Mariadb getDao() {
 		return dao;
 	}
@@ -28,26 +26,36 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<UserVO> userList() {
-		// TODO Auto-generated method stub
 		return dao.userList();
 	}
 
 	@Override
 	public void userAdd(UserVO vo) {
-		// TODO Auto-generated method stub
 		dao.userAdd(vo);
 	}
 
-	@Override
-	public void userDelete(String email) {
-		// TODO Auto-generated method stub
-		dao.userDelete(email);
-	}
+
 
 	@Override
 	public UserVO login(String email, String password) {
-		// TODO Auto-generated method stub
 		return dao.login(email, password);
 	}
-	
+
+	@Override
+	public UserVO getUser(int id) {
+		return dao.getUser(id);
+	}
+
+	@Override
+	public void userDelete(int id) {
+			dao.userDelete(id);
+	}
+
+	@Override
+	public List<UserVO> searchUser(String condition, String keyword) {
+		return dao.userSearch(condition, keyword);
+	}
+
+
+
 }
