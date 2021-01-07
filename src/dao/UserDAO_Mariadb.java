@@ -70,6 +70,42 @@ public class UserDAO_Mariadb {
 			JDBCUtil.close(conn, ps, rs);
 		}
 	}
+	
+	public UserVO getUser(String id) {
+		String sql = "select * from user where userId=?";
+		
+		
+		Connection con = null;
+		PreparedStatement ps = null; // SQL 관리
+		ResultSet rs = null;
+		UserVO vo = null;
+		
+		try {
+			con = JDBCUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			rs = ps.executeQuery(); // 가지고있는거 사용할때 사용
+		 
+			while(rs.next() ) {
+				vo = new UserVO();
+				vo.setId(rs.getString("id"));
+				vo.setEmail(rs.getString("email"));
+				vo.setName(rs.getString("name"));
+				vo.setPassword(rs.getString("password"));
+				
+			}
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Error :" + e);
+		} finally {
+
+			JDBCUtil.close(con, ps, rs); // 자원반납 필수
+		}
+		return vo;
+	}
+	
+	
 	public void userDelete(String email) {
 		String sql = "delete from user where email = ?";
 		

@@ -50,6 +50,11 @@ public class MovieServiceimpl implements MovieService{
 		dao.movieUpdate(vo);
 	}
 
+	@Override
+	public MovieVO getMovie(int i) {
+		return dao.getMovie(i);
+	}
+
 	
 
 }

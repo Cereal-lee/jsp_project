@@ -13,6 +13,8 @@ public interface MovieService {
 	public List<MovieVO> movieSearch(String condition, String keyword);
 	
 	public void movieUpdate(MovieVO vo);
+
+	public MovieVO getMovie(int i);
 	
 	
 }

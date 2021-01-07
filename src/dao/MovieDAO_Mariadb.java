@@ -76,6 +76,40 @@ public class MovieDAO_Mariadb {
 		}
 	}
 	
+	public MovieVO getMovie(int i) {
+		String sql = "select * from movie where movieId = ?";
+		
+		Connection con = null;
+		PreparedStatement ps = null; // SQL 관리
+		ResultSet rs = null;
+		MovieVO vo = null;
+		
+		try {
+			con = JDBCUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, i);
+			rs = ps.executeQuery(); // 가지고있는거 사용할때 사용
+			
+			// 결과값 처리
+			while(rs.next()) {
+				vo = new MovieVO();
+				vo.setMovieId(rs.getInt("movieId"));
+				vo.setTitle(rs.getString("title"));
+				vo.setDate(rs.getString("date"));
+				vo.setScore(rs.getFloat("score"));
+				vo.setContext(rs.getString("context"));
+				
+			} 
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Error :" + e);
+		} finally {
+
+			JDBCUtil.close(con, ps, rs); // 자원반납 필수
+		}
+		return vo;
+	}
 	
 	public void movieDelete(int movieId) {
 		String sql = "delete from movie where movieId = ?";
