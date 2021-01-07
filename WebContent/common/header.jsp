@@ -47,8 +47,8 @@
 									<form class="form-inline my-2 my-lg-0">
 										<input class="form-control mr-sm-2" type="text"
 												placeholder="작품을 검색해보세요">
-										<p style="margin-right:15px; margin-left:15px;">${login.name}님환영합니다</p>
-										<button type="button" onclick="location.href='/logout.do' ">로그아웃</button>
+										<p style="margin-right:15px; margin-left:15px;">${login.name}님</p>
+										<button type="button" class="btn btn-outline-dark" onclick="location.href='/logout.do' ">로그아웃</button>
 									</form>	
 									</c:when>
 									<c:otherwise>
