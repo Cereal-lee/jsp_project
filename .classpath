@@ -13,11 +13,6 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="C:/Users/JeongYS/.p2/pool/plugins/org.junit.jupiter.api_5.5.1.v20190826-0900.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="http://junit.org/junit5/docs/current/api/"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="lib" path="C:/Users/JeongYS/Downloads/기타/mariadb-java-client-2.6.2.jar"/>
 	<classpathentry kind="output" path="build/classes"/>

@@ -14,7 +14,7 @@ import dao.BookDAO_Mariadb;
 import junit.extensions.*;
 
 import service.BookService;
-import service.BookServiceImpl;
+import service.BookServiceimpl;
 import vo.BookVO;
 
 class bookTest {
@@ -24,7 +24,7 @@ class bookTest {
 	void setUp() throws Exception {
 		
 		BookDAO_Mariadb dao = new BookDAO_Mariadb();
-		service = new BookServiceImpl(dao);
+		service = new BookServiceimpl(dao);
 	}
 	
 //	@Test
