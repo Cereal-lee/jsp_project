@@ -18,8 +18,8 @@
 	<%@ include file="common/header.jsp" %>	
 <div class="container">
 	<div id="carouselExample" class="carousel slide" data-interval="false" data-ride="carousel" data-pause="hover">
-		<div class="tit" style="margin-left:10px;">TV 프로그램</div>
-		<div class="carousel-inner">
+		<div class="tit" style="margin-left:35px;">TV 프로그램</div>
+		<div class="carousel-inner" style="margin-left:25px;">
 			<div class="carousel-item active">
 				<a class="card cardImg"><img src="/img/sweethome.jpg" alt="스위트홈">스위트홈<br>2020</a> 
 				<a class="card cardImg"><img src="/img/sweethome.jpg" alt="스위트홈">스위트홈<br>2020</a> 

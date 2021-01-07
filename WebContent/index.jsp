@@ -18,8 +18,8 @@
 	<%@ include file="common/header.jsp"%>
 <div class="container">
 	<div id="carouselExampleControls" class="carousel slide" data-interval="false" data-ride="carousel" data-pause="hover">
-		<div class="tit" style="margin-left:10px;">영화</div>
-		<div class="carousel-inner">
+		<div class="tit" style="margin-left:35px;">영화</div>
+		<div class="carousel-inner" style="margin-left:25px;">
 			<div class="carousel-item active">
 				<a class="card cardImg"><img src="/img/harrystone.jpg" alt="해리포터">해리포터와 마법사의 돌<br>2001</a> 
 				<a class="card cardImg"><img src="/img/harrystone.jpg" alt="해리포터">해리포터와 마법사의 돌<br>2001</a> 
