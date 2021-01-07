@@ -77,14 +77,14 @@ public class UserDAO_Mariadb {
 		String sql = "select * from user where userId=?";
 		
 		
-		Connection con = null;
+		Connection conn = null;
 		PreparedStatement ps = null; // SQL 관리
 		ResultSet rs = null;
 		UserVO vo = null;
 		
 		try {
-			con = JDBCUtil.getConnection();
-			ps = con.prepareStatement(sql);
+			conn = JDBCUtil.getConnection();
+			ps = conn.prepareStatement(sql);
 			ps.setInt(1, id);
 			rs = ps.executeQuery(); // 가지고있는거 사용할때 사용
 		 
@@ -103,7 +103,7 @@ public class UserDAO_Mariadb {
 			System.out.println("Error :" + e);
 		} finally {
 
-			JDBCUtil.close(con, ps, rs); // 자원반납 필수
+			JDBCUtil.close(conn, ps, rs); // 자원반납 필수
 		}
 		return vo;
 	}
@@ -174,15 +174,15 @@ public class UserDAO_Mariadb {
 		String sql = "select * from user where " + condition + " like ?";
 		
 		// select * from book where publisher like '%한%';
-		Connection con = null;
+		Connection conn = null;
 		PreparedStatement ps = null; // SQL 관리
 		ResultSet rs = null;
 		List<UserVO> list = new ArrayList<UserVO>();		// is a 관계
 															// 
 		
 		try {
-			con = JDBCUtil.getConnection();
-			ps = con.prepareStatement(sql);
+			conn = JDBCUtil.getConnection();
+			ps = conn.prepareStatement(sql);
 			ps.setString(1, "%" + keyword + "%");
 			
 			rs = ps.executeQuery(); // 가지고있는거 사용할때 사용
@@ -204,7 +204,7 @@ public class UserDAO_Mariadb {
 			System.out.println("Error :" + e);
 		} finally {
 
-			JDBCUtil.close(con, ps, rs); // 자원반납 필수
+			JDBCUtil.close(conn, ps, rs); // 자원반납 필수
 		}
 		return list;
 

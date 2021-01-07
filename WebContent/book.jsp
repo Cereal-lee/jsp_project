@@ -24,24 +24,19 @@ background-color: #deafaf;
 color:#423e3e;
 font-size : 20px;
 }
-
 .topright {
   position: absolute;
   top: 8px;
   right: 16px;
   font-size: 18px;
 }
-
 /* 레이아웃 */
 #header {width: 100%; height: 63px; position: fixed;}
 #banner {position: relative;}
-
 /* 가운데 영역 */
 .container {position: relative; width: 1280px; margin: 0 auto; background: rgba(0,0,0,0); }
-
 /* 로우 영역 */
 .row {padding: 0 24px;}
-
 /* 헤더 영역 */
 .header h1 {float: left;}
 .header h1 em {padding: 15px 8px 5px 0; display: inline-block;}
@@ -52,45 +47,33 @@ font-size : 20px;
 .header .nav ul li a { font-size: 15px; font-weight: 500; color: #444; line-height: 50px;}
 .mr-sm-2 {margin-top: 6px; float: right;}
 .btn { margin-top: 6px;}
-
 /* 여백 초기화 */
 body,div,ul,li,dl,dd,dt,ol,h1,h2,h3,h4,h5,h6,input,fieldset,legend,p,select,table,th,td,tr,textarea,button,form,figure,figcaption{margin:0; padding:0;}
-
 /* a 링크 초기화 */
 a {color: #222; text-decoration: none;}
 a:hover {color: #2698cb;}
-
 /* 폰트 초기화 */
 body, input, textarea, select, button, table {font-family:'Noto Sans KR', AppleSDGothicNeo-Regular,'Malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif; color: #222; font-size: 13px; line-height: 1.5;}
-
 /* 폰트 스타일 초기화 */
 em,address {font-style: normal;}
-
 /* 블릿기호 초기화 */
 ul,li,ol {list-style:none;}
-
 /* 제목 태그 초기화 */
 h1,h2,h3,h4,h5,h6 {font-size: 13px; font-weight: normal;}
-
 /* 테두리 초기화 */
 img,fieldset {border:0 none;}
-
 /* 버튼 초기화 */
 button {border: 0;}
-
 /* 반응형 */
 video,img {width: 100%;}
-
 /* clearfix */
 .clearfix{*zoom:1;}
 .clearfix:before, .clearfix:after {display: block; content: '';line-height: 0;}
 .clearfix:after {clear: both;}
-
 /* IR 효과 */
 .ir_pm {display:block; overflow:hidden; font-size:0; line-height:0; text-indent:-9999px;} /* 의미있는 이미지의 대체 텍스트를 제공하는 경우(Phark Method) */
 .ir_wa {display:block; overflow:hidden; position:relative; z-index:-1; width:100%; height: 100%;} /* 의미있는 이미지의 대체 텍스트로 이미지가 없어도 대체 텍스트를 보여주고자 할 때(WA IR) */
 .ir_so {overflow: hidden; position:absolute; width:0; height:0; line-height:0; text-indent:-9999px;} /* 대체 텍스트가 아닌 접근성을 위한 숨김 텍스트를 제공할 때 */
-
 </style>
 
 <!-- 웹 폰트 -->
@@ -201,7 +184,6 @@ video,img {width: 100%;}
 		crossorigin="anonymous"></script>
 		
 		<!-- <footer class="navbar-bottom navbar-light" >
-
   <a class="navbar-brand" style="font-size:15px"> 서비스 이용약관</a>
   <a class="navbar-brand" style="font-size:15px"> 개인정보 처리방침</a>
   <a class="navbar-brand" style="font-size:15px"> 회사 안내</a>
@@ -220,7 +202,6 @@ video,img {width: 100%;}
     사업자 등록 번호 123-45-67890
  <br>
 <img src="/img/ui.png"> 2011 Watcha.lnc
-
 </footer> -->
 </body>
 </html>
