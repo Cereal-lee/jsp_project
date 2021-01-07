@@ -26,26 +26,36 @@ public class UserServiceimpl implements UserService {
 
 	@Override
 	public List<UserVO> userList() {
-		// TODO Auto-generated method stub
 		return dao.userList();
 	}
 
 	@Override
 	public void userAdd(UserVO vo) {
-		// TODO Auto-generated method stub
 		dao.userAdd(vo);
 	}
 
-	@Override
-	public void userDelete(String email) {
-		// TODO Auto-generated method stub
-		dao.userDelete(email);
-	}
+
 
 	@Override
 	public UserVO login(String email, String password) {
-		// TODO Auto-generated method stub
 		return dao.login(email, password);
 	}
+
+	@Override
+	public UserVO getUser(int id) {
+		return dao.getUser(id);
+	}
+
+	@Override
+	public void userDelete(int id) {
+			dao.userDelete(id);
+	}
+
+	@Override
+	public List<UserVO> searchUser(String condition, String keyword) {
+		return dao.userSearch(condition, keyword);
+	}
+
+
 
 }

@@ -57,10 +57,7 @@ class MovieTest {
 		
 		for(MovieVO data:list) {
 			System.out.printf("%s|%s|%3.2f|%s %n", data.getTitle(), data.getDate(), data.getScore(), data.getContext());
-			
-			
 		}
-		
 	}
 	
 	@Test

@@ -5,16 +5,16 @@ import java.util.List;
 import dao.TvDAO_Mariadb;
 import vo.TvVO;
 
-public class TvServiceImpl implements TvService {
+public class TvServiceimpl implements TvService {
 	private TvDAO_Mariadb dao = null; //DB연동
 	
 
-	public TvServiceImpl() {
+	public TvServiceimpl() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	public TvServiceImpl(TvDAO_Mariadb dao) { //using fields
+	public TvServiceimpl(TvDAO_Mariadb dao) { //using fields
 		super();
 		this.dao = dao;
 	}
@@ -58,5 +58,14 @@ public class TvServiceImpl implements TvService {
 	public void setDao(TvDAO_Mariadb dao) {
 		this.dao = dao;
 	}
+
+	@Override
+	public TvVO getTv(int tvId) {
+		// TODO Auto-generated method stub
+		return dao.getTv(tvId);
+	}
+	
+	
+	
 }
 	
