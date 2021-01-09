@@ -45,7 +45,7 @@ public class BookDAO_Mariadb {
 	}
 		
 	public void bookAdd(BookVO vo) {
-		String sql = "insert into book (title, writer, context, score, image) values (?, ?, ?, ?, ?)";
+		String sql = "insert into book (title, writer, context, image) values (?, ?, ?, ?)";
 		
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -59,8 +59,7 @@ public class BookDAO_Mariadb {
 			ps.setString(1, vo.getTitle());
 			ps.setString(2, vo.getWriter());
 			ps.setString(3, vo.getContext());
-			ps.setFloat(4, vo.getScore());
-			ps.setString(5, vo.getImage());
+			ps.setString(4, vo.getImage());
 			
 			row = ps.executeUpdate();
 			

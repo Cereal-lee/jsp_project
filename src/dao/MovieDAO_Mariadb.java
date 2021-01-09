@@ -46,7 +46,7 @@ public class MovieDAO_Mariadb {
 	}
 	
 	public void movieAdd(MovieVO vo) {
-		String sql = "insert into movie(title, date, context, score, image) values(?,?,?,?,?)";
+		String sql = "insert into movie(title, date, context, image) values(?,?,?,?)";
 		
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -60,8 +60,7 @@ public class MovieDAO_Mariadb {
 			ps.setString(1, vo.getTitle() );
 			ps.setString(2, vo.getDate() );
 			ps.setString(3, vo.getContext() );
-			ps.setFloat(4, vo.getScore() );
-			ps.setString(5, vo.getImage());
+			ps.setString(4, vo.getImage());
 			
 			row = ps.executeUpdate();
 			
