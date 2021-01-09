@@ -6,7 +6,17 @@ public class TvVO {
 	private String date;
 	private float score;
 	private String context;
+	private String image;
 	
+	
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
 	public TvVO() {
 		super();
 		// TODO Auto-generated constructor stub

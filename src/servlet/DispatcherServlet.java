@@ -3,21 +3,29 @@ package servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.security.MessageDigest;
+import java.util.Collection;
 import java.util.List;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
+import dao.MovieDAO_Mariadb;
 import dao.UserDAO_Mariadb;
+import service.MovieService;
+import service.MovieServiceimpl;
 import service.UserService;
 import service.UserServiceimpl;
+import vo.MovieVO;
 import vo.UserVO;
 
 @WebServlet("*.do")
+@MultipartConfig(location = "jsp_project/upload/",maxFileSize = 1024*1024*5)
 public class DispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -111,6 +119,48 @@ public class DispatcherServlet extends HttpServlet {
 			if (session != null) { 
 				session.invalidate(); 
 			}
+			response.sendRedirect("/");
+
+			return;
+		}
+		
+		if (action.equals("/addmovie.do")) {
+
+			MovieDAO_Mariadb dao = new MovieDAO_Mariadb();
+			MovieService service = new MovieServiceimpl(dao);
+
+			String title = request.getParameter("title");
+			String year = request.getParameter("year");
+			String month = request.getParameter("month");
+			String day = request.getParameter("day");
+			String context = request.getParameter("context");
+			String image = request.getParameter("image");
+			
+			String date = year+"-"+month+"-"+day;
+			
+			MovieVO vo = new MovieVO();
+
+			vo.setTitle(title);
+			vo.setDate(date);
+			vo.setContext(context);
+			vo.setImage(image);
+			
+			String path = request.getSession().getServletContext().getRealPath("/upload/");
+			System.out.println(path);
+			
+			Collection<Part> p = request.getParts();
+			for(Part data :p) {
+				if(data.getContentType() != null ) {
+					String fileName = data.getSubmittedFileName();	
+					if(fileName != null && fileName.length() != 0) {
+						vo.setImage(fileName);
+						data.write(path + fileName);
+					}
+				}
+			}
+			
+			service.movieAdd(vo);
+
 			response.sendRedirect("/");
 
 			return;

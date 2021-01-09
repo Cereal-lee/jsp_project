@@ -49,9 +49,7 @@
 										<p style="margin-right:15px; margin-left:15px;">${login.name}님</p>
 										<button type="button" class="btn btn-outline-dark" onclick="location.href='/logout.do' ">로그아웃</button>
 									</form>
-										<c:if test="${login.role eq 'admin' }">
-											관리자만 보입니다.
-										</c:if>
+										
 									</c:when>
 									<c:otherwise>
 									

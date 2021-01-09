@@ -31,6 +31,7 @@ public class BookDAO_Mariadb {
 				vo.setWriter(rs.getString("writer"));
 				vo.setScore(rs.getFloat("score"));
 				vo.setContext(rs.getString("context"));
+				vo.setImage(rs.getString("image"));
 				
 				list.add(vo);
 			}
@@ -44,7 +45,7 @@ public class BookDAO_Mariadb {
 	}
 		
 	public void bookAdd(BookVO vo) {
-		String sql = "insert into book (title, writer, context, score) values (?, ?, ?, ?)";
+		String sql = "insert into book (title, writer, context, score, image) values (?, ?, ?, ?, ?)";
 		
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -59,6 +60,7 @@ public class BookDAO_Mariadb {
 			ps.setString(2, vo.getWriter());
 			ps.setString(3, vo.getContext());
 			ps.setFloat(4, vo.getScore());
+			ps.setString(5, vo.getImage());
 			
 			row = ps.executeUpdate();
 			
@@ -98,7 +100,7 @@ public class BookDAO_Mariadb {
 	}
 	
 	public void bookUpdate(BookVO vo) {
-		String sql = "update book set title = ?, writer = ?, score = ?, context = ? where bookId = ?";
+		String sql = "update book set title = ?, writer = ?, score = ?, context = ?, image = ? where bookId = ?";
 		
 		Connection conn = null;
 		PreparedStatement ps = null; // SQL 관리
@@ -112,7 +114,8 @@ public class BookDAO_Mariadb {
 			ps.setString(2, vo.getWriter()); 
 			ps.setFloat(3, vo.getScore());
 			ps.setString(4, vo.getContext());
-			ps.setInt(5, vo.getBookId());
+			ps.setString(5, vo.getImage());
+			ps.setInt(6, vo.getBookId());
 			
 			row = ps.executeUpdate();
 			
@@ -153,6 +156,7 @@ public class BookDAO_Mariadb {
 				vo.setWriter(rs.getString("writer"));
 				vo.setScore(rs.getFloat("score"));
 				vo.setContext(rs.getString("context"));
+				vo.setImage(rs.getString("image"));
 				list.add(vo);
 			}
 					
@@ -186,6 +190,7 @@ public class BookDAO_Mariadb {
 				vo.setWriter(rs.getString("writer"));
 				vo.setScore(rs.getFloat("score"));
 				vo.setContext(rs.getString("context"));
+				vo.setImage(rs.getString("image"));
 			}
 			
 		} catch (Exception e) {

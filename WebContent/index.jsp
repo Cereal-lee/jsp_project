@@ -16,7 +16,26 @@
 
 <body>
 	<%@ include file="common/header.jsp"%>
-<div class="container">
+
+	<div class="container">
+		<c:if test="${login.role eq 'admin' }">
+			<h5>관리자 페이지</h5>
+			<h2>등록</h2>
+		<form action="addmovie.do" method="post" enctype="multipart/form-data">
+			타이틀 : <input type="text" name="title"> <br /> 
+			출시일 : <input type="number" name="year" maxlength='4'>-
+			<input type="number" name="month" maxlength='2'>-
+			<input type="number" name="day" maxlength='2'> <br /> 
+			내용 :<br />  <textarea cols="50" rows="10" name="context"></textarea> <br /> 
+			<label>첨부파일 : <input type="file" name="image"></label> <br> 
+			<input type="submit" value="등록"> 
+			<input type="reset" value="초기화">
+
+		</form>
+		</c:if>
+	</div>
+
+	<div class="container">
 	<div id="carouselExampleControls" class="carousel slide" data-interval="false" data-ride="carousel" data-pause="hover">
 		<div class="tit" style="margin-left:35px;">영화</div>
 		<div class="carousel-inner" style="margin-left:25px;">
