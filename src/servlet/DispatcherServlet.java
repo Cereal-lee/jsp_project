@@ -277,7 +277,52 @@ public class DispatcherServlet extends HttpServlet {
 			return;
 		}
 		
+		if(action.equals("/search.do")) {
+			String condition = "title";
+			String keyword = request.getParameter("keyword");
+			
+			if(keyword.isEmpty()) {
+				PrintWriter out = response.getWriter();
+				 
+				out.println("<script>alert('한 글자 이상 입력해주세요.'); location.href='/';</script>");
+				out.flush();
+				out.close();
+			}
+			else {
+			UserDAO_Mariadb dao = new UserDAO_Mariadb();
+			UserService service = new UserServiceimpl(dao);
+			
+			BookDAO_Mariadb bookDao = new BookDAO_Mariadb();
+			BookService bookService = new BookServiceimpl(bookDao);
+			
+			TvDAO_Mariadb tvDao = new TvDAO_Mariadb();
+			TvService tvService = new TvServiceimpl(tvDao);
+			
+			MovieDAO_Mariadb movieDao = new MovieDAO_Mariadb();
+			MovieService movieService = new MovieServiceimpl(movieDao);
+			
+			List<UserVO> userListName = service.searchUser("name", keyword);
+			List<UserVO> userListEmail = service.searchUser("email", keyword);
+			
+			List<BookVO> bookListTitle = bookService.bookSearch(condition, keyword);
+			List<BookVO> bookListWriter = bookService.bookSearch("writer", keyword);
+			
+			List<TvVO> tvList = tvService.tvSearch(condition, keyword);
+			List<MovieVO> movieList = movieService.movieSearch(condition, keyword);
+			
+			request.setAttribute("userListName", userListName);
+			request.setAttribute("userListEmail", userListEmail);
+			request.setAttribute("bookListTitle", bookListTitle);
+			request.setAttribute("bookListWriter", bookListWriter);
+			request.setAttribute("tvList", tvList);
+			request.setAttribute("movieList", movieList);
+			
+			getServletContext().getRequestDispatcher("/search.jsp").forward(request, response);
+			}
+			return;
+		}
 	}
+	
 	
 	public static String testSHA256(String pwd) {
 		try{

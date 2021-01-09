@@ -41,22 +41,21 @@
 						<div class="topright"
 							style="margin-top: 19px; margin-left: 150px;">
 							<div class="container">
+
 								<c:choose>
 									<c:when test="${not empty login }">
-										<form class="form-inline my-2 my-lg-0">
-											<input class="form-control mr-sm-2" type="text"
-												placeholder="작품을 검색해보세요">
+										<form action="search.do" class="form-inline my-2 my-lg-0" method="POST">
+											<input class="form-control mr-sm-2" type="text" placeholder="작품을 검색해보세요" name="keyword">
 											<p style="margin-right: 15px; margin-left: 15px; margin-bottom:0px;">${login.name}님</p>
 											<button type="button" class="btn btn-outline-dark"
-												onclick="location.href='/logout.do'">로그아웃</button>
+												onclick="location.href='/logout.do' ">로그아웃</button>
 										</form>
 
 									</c:when>
 									<c:otherwise>
 
-										<form class="form-inline my-2 my-lg-0">
-											<input class="form-control mr-sm-2" type="text"
-												placeholder="작품을 검색해보세요">
+										<form action="search.do" class="form-inline my-2 my-lg-0" method="POST">
+											<input class="form-control mr-sm-2" type="text" placeholder="작품을 검색해보세요" name="keyword">
 											<button type="button" class="btn btn-link-secondary"
 												data-toggle="modal" data-target="#login">로그인</button>
 											<button type="button" class="btn btn-outline-dark"
@@ -189,6 +188,7 @@
 				}
 				$('form[name=signForm]').submit();
 			});
+			
 		</script>
 	</header>
 	<!-- //header -->
