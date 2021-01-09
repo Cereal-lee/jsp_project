@@ -12,6 +12,7 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
+
 <script>
     function numberMaxLength(e){
         if(e.value.length > e.maxLength){
@@ -41,13 +42,13 @@
 				내용 :<br />
 				<textarea cols="50" rows="10" name="context"></textarea>
 				<br /> <label>첨부파일 : <input type="file" name="image"></label>
-				<br> <input type="submit" value="등록"> <input
-					type="reset" value="초기화">
+				<br> <input type="submit" value="등록"> 
+				<input type="reset" value="초기화">
 
 			</form>
 		</c:if>
 	</div>
-
+	
 	<div class="container">
 		<div id="carouselExampleControls" class="carousel slide"
 			data-interval="false" data-ride="carousel" data-pause="hover">
@@ -90,7 +91,7 @@
 
 		</div>
 	</div>
-
+	
 	<%@ include file="common/footer.jsp"%>
 
 </body>
