@@ -58,7 +58,7 @@
 					<c:forEach var="data" items="${tvList}">
 						<c:if test="${data.tvId <= '5' }">
 							<a class="card cardImg"><img src="/upload/${data.image }"
-								alt="해리포터">${data.title }<br>${data.date }</a>
+								alt="해리포터" onclick="location.href='/info.do?tvId=${data.tvId}'">${data.title }<br>${data.date }</a>
 						</c:if>
 					</c:forEach>
 				</div>

@@ -52,7 +52,7 @@
 					<c:forEach var="data" items="${bookList}">
 						<c:if test="${data.bookId <= '5' }">
 							<a class="card cardImg"><img src="/upload/${data.image }"
-								alt="해리포터">${data.title }<br>${data.writer }</a>
+								alt="해리포터" onclick="location.href='/info.do?bookId=${data.bookId}'">${data.title }<br>${data.writer }</a>
 						</c:if>
 					</c:forEach>
 				</div>

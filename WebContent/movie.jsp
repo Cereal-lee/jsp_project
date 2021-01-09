@@ -59,7 +59,7 @@
 					<c:forEach var="data" items="${movieList}">
 						<c:if test="${data.movieId <= '5' }">
 							<a class="card cardImg"><img src="/upload/${data.image }"
-								alt="해리포터" onClick = "/info.do">${data.title }<br>${data.date }</a>
+								alt="해리포터" onclick="location.href='/info.do?movieId=${data.movieId}'">${data.title }<br>${data.date }</a>
 						</c:if>
 					</c:forEach>
 				</div>
