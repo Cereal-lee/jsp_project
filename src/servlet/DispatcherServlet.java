@@ -44,6 +44,17 @@ public class DispatcherServlet extends HttpServlet {
 		String url = request.getRequestURI();
 		String action = url.substring(url.lastIndexOf('/'));
 		
+		if(action.equals("/movie.do")) {
+			MovieDAO_Mariadb dao = new MovieDAO_Mariadb();
+			MovieService service = new MovieServiceimpl(dao);
+			List<MovieVO> list = service.movieList();
+			
+			request.setAttribute("movielist", list);
+			
+			getServletContext().getRequestDispatcher("/movie.jsp").forward(request, response);
+			return;
+		}
+		
 		if(action.equals("/tvshow.do")) {
 			getServletContext().getRequestDispatcher("/tvshow.jsp").forward(request, response);
 			return;
