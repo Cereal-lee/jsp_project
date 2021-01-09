@@ -50,9 +50,16 @@ color:ff0000;
   width: 200px;
   height: 280px;
   object-fit: cover;
+  color:#666;
 }
 .date{
 	width:60px;
 	margin-top:10px;
 	margin-bottom:10px;
+}
+.admin{
+	margin-left:40px;
+}
+.ok{
+	margin-right:10px;
 }

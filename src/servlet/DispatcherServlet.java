@@ -33,7 +33,7 @@ import vo.TvVO;
 import vo.UserVO;
 
 @WebServlet("*.do")
-@MultipartConfig(maxFileSize = 1024*1024*5)	//업로드 준비 하는 작업
+@MultipartConfig(maxFileSize = 1024*1024*5)
 public class DispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -49,18 +49,30 @@ public class DispatcherServlet extends HttpServlet {
 			MovieService service = new MovieServiceimpl(dao);
 			List<MovieVO> list = service.movieList();
 			
-			request.setAttribute("movielist", list);
+			request.setAttribute("movieList", list);
 			
 			getServletContext().getRequestDispatcher("/movie.jsp").forward(request, response);
 			return;
 		}
 		
 		if(action.equals("/tvshow.do")) {
+			TvDAO_Mariadb dao = new TvDAO_Mariadb();
+			TvService service = new TvServiceimpl(dao);
+			List<TvVO> list = service.tvList();
+			
+			request.setAttribute("tvList", list);
+			
 			getServletContext().getRequestDispatcher("/tvshow.jsp").forward(request, response);
 			return;
 		}
 		
 		if(action.equals("/book.do")) {
+			BookDAO_Mariadb dao = new BookDAO_Mariadb();
+			BookService service = new BookServiceimpl(dao);
+			List<BookVO> list = service.bookList();
+			
+			request.setAttribute("bookList", list);
+			
 			getServletContext().getRequestDispatcher("/book.jsp").forward(request, response);
 			return;
 		}
@@ -143,7 +155,6 @@ public class DispatcherServlet extends HttpServlet {
 			return;
 		}
 		
-//		영화 추가
 		if (action.equals("/addmovie.do")) {
 
 			MovieDAO_Mariadb dao = new MovieDAO_Mariadb();
@@ -186,8 +197,6 @@ public class DispatcherServlet extends HttpServlet {
 			return;
 		}
 		
-		
-//		TV 내용 추가
 		if (action.equals("/addtv.do")) {
 
 			TvDAO_Mariadb dao = new TvDAO_Mariadb();
@@ -230,7 +239,6 @@ public class DispatcherServlet extends HttpServlet {
 			return;
 		}
 		
-//		책 추가
 		if (action.equals("/addbook.do")) {
 
 			BookDAO_Mariadb dao = new BookDAO_Mariadb();
@@ -240,8 +248,6 @@ public class DispatcherServlet extends HttpServlet {
 			String writer = request.getParameter("writer");
 			String context = request.getParameter("context");
 			String image = request.getParameter("image");
-			
-
 			
 			BookVO vo = new BookVO();
 
@@ -270,8 +276,8 @@ public class DispatcherServlet extends HttpServlet {
 
 			return;
 		}
+		
 	}
-	
 	
 	public static String testSHA256(String pwd) {
 		try{
