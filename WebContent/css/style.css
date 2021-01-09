@@ -28,3 +28,26 @@
 .movie_chart > div > div .infor h3 strong{
     display: inline-block; width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
+
+.card {
+margin-top:30px;
+margin-left:10px;
+margin-right:0px;
+margin-bottom:100px;
+ float: left;
+}
+
+.tit {
+width:0 auto;
+height:0 auto;
+margin-top:20px;
+margin-left:50px;
+font-size:20px;
+color:ff0000;
+}
+
+.cardImg {
+  width: 200px;
+  height: 280px;
+  object-fit: cover;
+}

@@ -29,15 +29,14 @@
 			<div class="row">
 				<div class="header clearfix">
 					<h1>
-						<a href="#"> <em><img src="../img/logo.png" alt="WACHA" a
-								href="location.href='/' "></em>
+						<a href="/"> <em><img src="../img/logo.png" alt="WACHA" ></em>
 						</a>
 					</h1>
 					<nav class="nav">
 						<ul class="clearfix">
-							<li><a href="location.href='/' ">영화</a></li>
-							<li><a href="location.href='/tvshow.do' ">TV프로그램</a></li>
-							<li><a href="location.href='/book.do' ">책</a></li>
+							<li><a href="/">영화</a></li>
+							<li><a href="tvshow.do">TV프로그램</a></li>
+							<li><a href="book.do">책</a></li>
 						</ul>		
 						<div class="topright" style="margin-top:19px; margin-left:150px;">
 							<div class="container">
@@ -49,17 +48,20 @@
 												placeholder="작품을 검색해보세요">
 										<p style="margin-right:15px; margin-left:15px;">${login.name}님</p>
 										<button type="button" class="btn btn-outline-dark" onclick="location.href='/logout.do' ">로그아웃</button>
-									</form>	
+									</form>
+										<c:if test="${login.role eq 'admin' }">
+											<a href="add.jsp">관리자창</a>
+										</c:if>
 									</c:when>
 									<c:otherwise>
 									
 										<form class="form-inline my-2 my-lg-0">
 											<input class="form-control mr-sm-2" type="text"
 												placeholder="작품을 검색해보세요">
-											<button type="button" class="btn btn-outline-dark"
-												data-toggle="modal" data-target="#signIn">회원가입</button>
 											<button type="button" class="btn btn-link-secondary"
 												data-toggle="modal" data-target="#login">로그인</button>
+											<button type="button" class="btn btn-outline-dark"
+												data-toggle="modal" data-target="#signIn">회원가입</button>
 										</form>
 										</div>
 										<div class="modal" id="signIn">
@@ -87,8 +89,8 @@
 																<input type="password" class="form-control"
 																	name="password" placeholder="비밀번호">
 															</div>
-															<input type="hidden" name="role" value="user"> <input
-																type="submit" class="btn btn-primary btn-block"
+															<input type="hidden" name="role" value="user"> 
+															<input type="submit" class="btn btn-primary btn-block"
 																id="btnSign" value="회원가입">
 														</div>
 													</form>
@@ -165,7 +167,6 @@
 			}
 			$('#btnSign').on('click', function(e) {
 				e.preventDefault();
-
 				let email = $.trim($('input[name="email"]').val());
 				if (!$('input[name="name"]').val()) {
 					alert('이름을 입력해주세요');
@@ -177,7 +178,6 @@
 					$('input[name="email"]').focus();
 					return false;
 				}
-
 				if (!isEmail(email)) {
 					alert('올바른 형식의 이메일을 입력해주세요');
 					$('input[name="email"]').focus();
