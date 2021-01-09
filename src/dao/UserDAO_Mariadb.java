@@ -1,7 +1,6 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.JDBCType;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -170,7 +169,6 @@ public class UserDAO_Mariadb {
 	}
 	
 	public List<UserVO> userSearch(String condition, String keyword) {
-		int row = 0;
 		String sql = "select * from user where " + condition + " like ?";
 		
 		// select * from book where publisher like '%한%';
@@ -178,7 +176,6 @@ public class UserDAO_Mariadb {
 		PreparedStatement ps = null; // SQL 관리
 		ResultSet rs = null;
 		List<UserVO> list = new ArrayList<UserVO>();		// is a 관계
-															// 
 		
 		try {
 			con = JDBCUtil.getConnection();

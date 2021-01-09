@@ -8,7 +8,6 @@ import java.util.List;
 
 import util.JDBCUtil;
 import vo.BookVO;
-import vo.TvVO;
 
 public class BookDAO_Mariadb {
 	
@@ -130,7 +129,6 @@ public class BookDAO_Mariadb {
 	}
 	
 	public List<BookVO> bookSearch(String condition, String keyword) {
-		int row = 0;
 		
 		String sql = "select * from book where " + condition + " like ? order by title desc";
 		// select * from book where title like '%달%';

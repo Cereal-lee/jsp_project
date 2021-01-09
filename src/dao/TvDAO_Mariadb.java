@@ -3,14 +3,11 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.sql.Date;
 import java.util.List;
 
 import util.JDBCUtil;
 import vo.TvVO;
-import vo.UserVO;
 
 public class TvDAO_Mariadb {
 	
@@ -132,7 +129,6 @@ public class TvDAO_Mariadb {
 	}
 	
 	public List<TvVO> tvSearch(String condition, String keyword) {
-		int row = 0;
 		
 		String sql = "select * from tv where " + condition + " like ? order by title desc";
 		// select * from tv where title like '%펜%';

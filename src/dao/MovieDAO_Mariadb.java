@@ -1,7 +1,6 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -9,7 +8,6 @@ import java.util.List;
 
 import util.JDBCUtil;
 import vo.MovieVO;
-import vo.UserVO;
 
 
 public class MovieDAO_Mariadb {
@@ -138,7 +136,6 @@ public class MovieDAO_Mariadb {
 	}
 	
 	public List<MovieVO> movieSearch(String condition, String keyword) {
-		int row = 0;
 		
 		String sql = "select * from movie where " + condition + " like ?";
 		

@@ -89,8 +89,8 @@
 																<input type="password" class="form-control"
 																	name="password" placeholder="비밀번호">
 															</div>
-															<input type="hidden" name="role" value="user"> <input
-																type="submit" class="btn btn-primary btn-block"
+															<input type="hidden" name="role" value="user"> 
+															<input type="submit" class="btn btn-primary btn-block"
 																id="btnSign" value="회원가입">
 														</div>
 													</form>

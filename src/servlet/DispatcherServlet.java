@@ -3,6 +3,7 @@ package servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.security.MessageDigest;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -44,6 +45,11 @@ public class DispatcherServlet extends HttpServlet {
 			String name = request.getParameter("name");
 			String email = request.getParameter("email");
 			String password = request.getParameter("password");
+			String role = request.getParameter("role");
+			String condition = "email";
+			String keyword = request.getParameter("email");
+			
+			List<UserVO> list = service.searchUser(condition, keyword);
 			
 			String pwd = testSHA256(password);
 			
@@ -52,10 +58,22 @@ public class DispatcherServlet extends HttpServlet {
 			vo.setName(name);
 			vo.setEmail(email);
 			vo.setPassword(pwd);
+			vo.setRole(role);
+
+			PrintWriter out = response.getWriter();
 			
-			service.userAdd(vo);
+			if(list.isEmpty()) {
+				service.userAdd(vo);
+				out.println("<script>alert('회원가입이 완료되었습니다.'); location.href='/';</script>");
+				out.flush();
+				out.close();
+			}
+			else {
+				out.println("<script>alert('이미 등록된 이메일입니다.'); location.href='/';</script>");
+				out.flush();
+				out.close();
+			}
 			
-			response.sendRedirect("/");
 			return;
 		}
 		
