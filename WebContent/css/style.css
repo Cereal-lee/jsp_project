@@ -45,5 +45,11 @@ color:ff0000;
 	margin-left:40px;
 }
 .ok{
-	margin-right:10px;
-}
+	margin-right:10px;}
+
+/* 푸터 */
+.bm_left {float: left;}
+.bm_left ul {padding-top: 23px;}
+.bm_left li {display: inline; margin-left: 28px; float: left; font-color: #e0e0e0;}
+.bm_left li a {font-size: 14px; font-color: #f8f8f; text-decoration: none; color: gray !important;}
+
