@@ -12,10 +12,27 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
+	
 </head>
 
 <body>
 	<%@ include file="common/header.jsp"%>
+
+	<div class="container">
+		<c:if test="${login.role eq 'admin' }">
+			<h5>관리자 페이지</h5>
+			<h2>책 등록</h2>
+		<form action="addbook.do" method="post" enctype="multipart/form-data">
+			타이틀 : <input type="text" name="title"> <br /> 
+			저자 : <input type="text" name="writer"> <br />
+			내용 :<br />  <textarea cols="50" rows="10" name="context"></textarea> <br /> 
+			<label>첨부파일 : <input type="file" name="image" value="image"></label> <br> 
+			<input type="submit" value="등록"> 
+			<input type="reset" value="초기화">
+
+		</form>
+		</c:if>
+	</div>
 
 	<div class="container">
 
@@ -24,118 +41,31 @@
 			<div class="tit" style="margin-left: 35px;">책</div>
 			<div class="carousel-inner" style="margin-left: 25px;">
 				<div class="carousel-item active">
-
-					<a class="card cardImg"><img src="/img/harrystonebook.jpg"
-						alt="해리포터책">해리포터와 마법사의 돌<br>1997</a> <a
-						class="card cardImg"><img src="/img/harrystonebook.jpg"
-						alt="해리포터책">해리포터와 마법사의 돌<br>1997</a> <a
-						class="card cardImg"><img src="/img/harrystonebook.jpg"
-						alt="해리포터책">해리포터와 마법사의 돌<br>1997</a> <a
-						class="card cardImg"><img src="/img/harrystonebook.jpg"
-						alt="해리포터책">해리포터와 마법사의 돌<br>1997</a> <a
-						class="card cardImg"><img src="/img/harrystonebook.jpg"
-						alt="해리포터책">해리포터와 마법사의 돌<br>1997</a>
-
+					<c:forEach var="data" items="${bookList}">
+						<c:if test="${data.bookId <= '5' }">
+							<a class="card cardImg"><img src="/upload/${data.image }"
+								alt="해리포터">${data.title }<br>${data.writer }</a>
+						</c:if>
+					</c:forEach>
 				</div>
 				<div class="carousel-item">
-					<a class="card"><img src="..." alt="...">안녕하세요</a> <a
-						class="card"><img src="..." alt="...">만나서</a> <a
-						class="card"><img src="..." alt="...">반가워요</a> <a
-						class="card"><img src="..." alt="...">잘</a> <a class="card"><img
-						src="..." alt="...">부탁드려용</a>
+					<c:forEach var="data" items="${bookList}">
+						<c:if test="${data.bookId <= '10' and data.bookId > '5' }">
+							<a class="card cardImg"><img src="/upload/${data.image }"
+								alt="해리포터">${data.title }<br>${data.writer }</a>
+						</c:if>
+					</c:forEach>
 				</div>
 				<div class="carousel-item">
-					<a class="card"><img src="..." alt="...">안녕하세요</a> <a
-						class="card"><img src="..." alt="하이큐">하이큐45</a> <a
-						class="card"><img src="..." alt="...">반가워요</a> <a
-						class="card"><img src="..." alt="...">잘</a> <a class="card"><img
-						src="..." alt="...">부탁드려용</a>
+					<c:forEach var="data" items="${bookList}">
+						<c:if test="${data.bookId <= '15' and data.bookId > '10' }">
+							<a class="card cardImg"><img src="/upload/${data.image }"
+								alt="해리포터">${data.title }<br>${data.writer }</a>
+						</c:if>
+					</c:forEach>
 				</div>
 			</div>
-			<a class="carousel-control-prev" href="#carouselControls"
-				role="button" data-slide="prev"> <span
-				class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span>
-			</a> <a class="carousel-control-next" href="#carouselControls"
-				role="button" data-slide="next"> <span
-				class="carousel-control-next-icon"></span> <span class="sr-only">Next</span>
-			</a>
-		</div>
-
-		<div id="carouselControls" class="carousel slide"
-			data-interval="false" data-ride="carousel" data-pause="hover">
-			<div class="tit" style="margin-left: 35px;">책</div>
-			<div class="carousel-inner" style="margin-left: 25px;">
-				<div class="carousel-item active">
-
-					<a class="card cardImg"><img src="/img/harrystonebook.jpg"
-						alt="해리포터책">해리포터와 마법사의 돌<br>1997</a> <a
-						class="card cardImg"><img src="/img/harrystonebook.jpg"
-						alt="해리포터책">해리포터와 마법사의 돌<br>1997</a> <a
-						class="card cardImg"><img src="/img/harrystonebook.jpg"
-						alt="해리포터책">해리포터와 마법사의 돌<br>1997</a> <a
-						class="card cardImg"><img src="/img/harrystonebook.jpg"
-						alt="해리포터책">해리포터와 마법사의 돌<br>1997</a> <a
-						class="card cardImg"><img src="/img/harrystonebook.jpg"
-						alt="해리포터책">해리포터와 마법사의 돌<br>1997</a>
-
-				</div>
-				<div class="carousel-item">
-					<a class="card"><img src="..." alt="...">안녕하세요</a> <a
-						class="card"><img src="..." alt="...">만나서</a> <a
-						class="card"><img src="..." alt="...">반가워요</a> <a
-						class="card"><img src="..." alt="...">잘</a> <a class="card"><img
-						src="..." alt="...">부탁드려용</a>
-				</div>
-				<div class="carousel-item">
-					<a class="card"><img src="..." alt="...">안녕하세요</a> <a
-						class="card"><img src="..." alt="하이큐">하이큐45</a> <a
-						class="card"><img src="..." alt="...">반가워요</a> <a
-						class="card"><img src="..." alt="...">잘</a> <a class="card"><img
-						src="..." alt="...">부탁드려용</a>
-				</div>
-			</div>
-			<a class="carousel-control-prev" href="#carouselControls"
-				role="button" data-slide="prev"> <span
-				class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span>
-			</a> <a class="carousel-control-next" href="#carouselControls"
-				role="button" data-slide="next"> <span
-				class="carousel-control-next-icon"></span> <span class="sr-only">Next</span>
-			</a>
-		</div>
-
-		<div id="carouselControls" class="carousel slide"
-			data-interval="false" data-ride="carousel" data-pause="hover">
-			<div class="tit" style="margin-left: 35px;">책</div>
-			<div class="carousel-inner" style="margin-left: 25px;">
-				<div class="carousel-item active">
-
-					<a class="card cardImg"><img src="/img/harrystonebook.jpg"
-						alt="해리포터책">해리포터와 마법사의 돌<br>1997</a> <a
-						class="card cardImg"><img src="/img/harrystonebook.jpg"
-						alt="해리포터책">해리포터와 마법사의 돌<br>1997</a> <a
-						class="card cardImg"><img src="/img/harrystonebook.jpg"
-						alt="해리포터책">해리포터와 마법사의 돌<br>1997</a> <a
-						class="card cardImg"><img src="/img/harrystonebook.jpg"
-						alt="해리포터책">해리포터와 마법사의 돌<br>1997</a> <a
-						class="card cardImg"><img src="/img/harrystonebook.jpg"
-						alt="해리포터책">해리포터와 마법사의 돌<br>1997</a>
-
-				</div>
-				<div class="carousel-item">
-					<a class="card"><img src="..." alt="...">안녕하세요</a> <a
-						class="card"><img src="..." alt="...">만나서</a> <a
-						class="card"><img src="..." alt="...">반가워요</a> <a
-						class="card"><img src="..." alt="...">잘</a> <a class="card"><img
-						src="..." alt="...">부탁드려용</a>
-				</div>
-				<div class="carousel-item">
-					<a class="card"><img src="..." alt="...">안녕하세요</a> <a
-						class="card"><img src="..." alt="하이큐">하이큐45</a> <a
-						class="card"><img src="..." alt="...">반가워요</a> <a
-						class="card"><img src="..." alt="...">잘</a> <a class="card"><img
-						src="..." alt="...">부탁드려용</a>
-				</div>
-			</div>
+			
 			<a class="carousel-control-prev" href="#carouselControls"
 				role="button" data-slide="prev"> <span
 				class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span>

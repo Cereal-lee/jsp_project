@@ -12,6 +12,13 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
+<script>
+    function numberMaxLength(e){
+        if(e.value.length > e.maxLength){
+            e.value = e.value.slice(0, e.maxLength);
+        }
+    }
+</script>
 
 </head>
 
@@ -24,10 +31,14 @@
 			<h2>등록</h2>
 			<form action="addmovie.do" method="post"
 				enctype="multipart/form-data">
-				타이틀 : <input type="text" name="title"> <br /> 출시일 : <input
-					type="number" name="year" maxlength='4'>- <input
-					type="number" name="month" maxlength='2'>- <input
-					type="number" name="day" maxlength='2'> <br /> 내용 :<br />
+				타이틀 : <input type="text" name="title"> <br /> 
+				출시일 : <input class="date" type="number" name="year" maxlength='4'
+					oninput="numberMaxLength(this);" placeholder="년">- <input
+					class="date" type="number" name="month" maxlength='2'
+					oninput="numberMaxLength(this);" placeholder="월">- <input
+					class="date" type="number" name="day" maxlength='2'
+					oninput="numberMaxLength(this);" placeholder="일"> <br />
+				내용 :<br />
 				<textarea cols="50" rows="10" name="context"></textarea>
 				<br /> <label>첨부파일 : <input type="file" name="image"></label>
 				<br> <input type="submit" value="등록"> <input
@@ -43,23 +54,28 @@
 			<div class="tit" style="margin-left: 35px;">영화</div>
 			<div class="carousel-inner" style="margin-left: 25px;">
 				<div class="carousel-item active">
-					<a class="card cardImg"><img src="/img/harrystone.jpg" alt="해리포터">해리포터와 마법사의 돌<br>2001</a> 
-					<a class="card cardImg"><img src="/img/bts.jpg" alt="해리포터">해리포터와 마법사의 돌<br>2001</a> 
-					<a class="card cardImg"><img src="/img/god.jpg" alt="해리포터">해리포터와 마법사의 돌<br>2001</a> 
-					<a class="card cardImg"><img src="/img/inter.jpg" alt="해리포터">해리포터와 마법사의 돌<br>2001</a> 
-					<a class="card cardImg"><img src="/img/girl.jpg" alt="해리포터">해리포터와 마법사의 돌<br>2001</a>
+					<c:forEach var="data" items="${movieList}">
+						<c:if test="${data.movieId <= '5' }">
+							<a class="card cardImg"><img src="/upload/${data.image }"
+								alt="해리포터">${data.title }<br>${data.date }</a>
+						</c:if>
+					</c:forEach>
 				</div>
 				<div class="carousel-item">
-				<c:forEach var="data" items="${movielist}">
-					<a class="card cardImg"><img src="/upload/${data.image }" alt="해리포터">${data.title }<br>${data.date }</a> 
-				</c:forEach>
+					<c:forEach var="data" items="${movieList}">
+						<c:if test="${data.movieId <= '10' and data.movieId > '5' }">
+							<a class="card cardImg"><img src="/upload/${data.image }"
+								alt="해리포터">${data.title }<br>${data.date }</a>
+						</c:if>
+					</c:forEach>
 				</div>
 				<div class="carousel-item">
-					<a class="card"><img src="..." alt="...">안녕하세요</a> <a
-						class="card"><img src="..." alt="...">만나서</a> <a
-						class="card"><img src="..." alt="...">반가워요</a> <a
-						class="card"><img src="..." alt="...">잘</a> <a class="card"><img
-						src="..." alt="...">부탁드려용</a>
+					<c:forEach var="data" items="${movieList}">
+						<c:if test="${data.movieId <= '15' and data.movieId > '10' }">
+							<a class="card cardImg"><img src="/upload/${data.image }"
+								alt="해리포터">${data.title }<br>${data.date }</a>
+						</c:if>
+					</c:forEach>
 				</div>
 			</div>
 			<a class="carousel-control-prev" href="#carouselExampleControls"

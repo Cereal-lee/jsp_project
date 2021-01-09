@@ -15,13 +15,21 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import dao.BookDAO_Mariadb;
 import dao.MovieDAO_Mariadb;
+import dao.TvDAO_Mariadb;
 import dao.UserDAO_Mariadb;
+import service.BookService;
+import service.BookServiceimpl;
 import service.MovieService;
 import service.MovieServiceimpl;
+import service.TvService;
+import service.TvServiceimpl;
 import service.UserService;
 import service.UserServiceimpl;
+import vo.BookVO;
 import vo.MovieVO;
+import vo.TvVO;
 import vo.UserVO;
 
 @WebServlet("*.do")
@@ -41,18 +49,30 @@ public class DispatcherServlet extends HttpServlet {
 			MovieService service = new MovieServiceimpl(dao);
 			List<MovieVO> list = service.movieList();
 			
-			request.setAttribute("movielist", list);
+			request.setAttribute("movieList", list);
 			
 			getServletContext().getRequestDispatcher("/movie.jsp").forward(request, response);
 			return;
 		}
 		
 		if(action.equals("/tvshow.do")) {
+			TvDAO_Mariadb dao = new TvDAO_Mariadb();
+			TvService service = new TvServiceimpl(dao);
+			List<TvVO> list = service.tvList();
+			
+			request.setAttribute("tvList", list);
+			
 			getServletContext().getRequestDispatcher("/tvshow.jsp").forward(request, response);
 			return;
 		}
 		
 		if(action.equals("/book.do")) {
+			BookDAO_Mariadb dao = new BookDAO_Mariadb();
+			BookService service = new BookServiceimpl(dao);
+			List<BookVO> list = service.bookList();
+			
+			request.setAttribute("bookList", list);
+			
 			getServletContext().getRequestDispatcher("/book.jsp").forward(request, response);
 			return;
 		}
@@ -173,6 +193,86 @@ public class DispatcherServlet extends HttpServlet {
 			service.movieAdd(vo);
 
 			response.sendRedirect("/");
+
+			return;
+		}
+		
+		if (action.equals("/addtv.do")) {
+
+			TvDAO_Mariadb dao = new TvDAO_Mariadb();
+			TvService service = new TvServiceimpl(dao);
+
+			String title = request.getParameter("title");
+			String year = request.getParameter("year");
+			String month = request.getParameter("month");
+			String day = request.getParameter("day");
+			String context = request.getParameter("context");
+			String image = request.getParameter("image");
+			
+			String date = year+"-"+month+"-"+day;
+			
+			TvVO vo = new TvVO();
+
+			vo.setTitle(title);
+			vo.setDate(date);
+			vo.setContext(context);
+			vo.setImage(image);
+			
+			String path = request.getSession().getServletContext().getRealPath("/upload/");
+			System.out.println(path);
+			
+			Collection<Part> p = request.getParts();
+			for(Part data :p) {
+				if(data.getContentType() != null ) {
+					String fileName = data.getSubmittedFileName();	
+					if(fileName != null && fileName.length() != 0) {
+						vo.setImage(fileName);
+						data.write(path + fileName);
+					}
+				}
+			}
+			
+			service.tvAdd(vo);
+
+			response.sendRedirect("/tvshow.jsp");
+
+			return;
+		}
+		
+		if (action.equals("/addbook.do")) {
+
+			BookDAO_Mariadb dao = new BookDAO_Mariadb();
+			BookService service = new BookServiceimpl(dao);
+
+			String title = request.getParameter("title");
+			String writer = request.getParameter("writer");
+			String context = request.getParameter("context");
+			String image = request.getParameter("image");
+			
+			BookVO vo = new BookVO();
+
+			vo.setTitle(title);
+			vo.setWriter(writer);
+			vo.setContext(context);
+			vo.setImage(image);
+			
+			String path = request.getSession().getServletContext().getRealPath("/upload/");
+			System.out.println(path);
+			
+			Collection<Part> p = request.getParts();
+			for(Part data :p) {
+				if(data.getContentType() != null ) {
+					String fileName = data.getSubmittedFileName();	
+					if(fileName != null && fileName.length() != 0) {
+						vo.setImage(fileName);
+						data.write(path + fileName);
+					}
+				}
+			}
+			
+			service.bookAdd(vo);
+
+			response.sendRedirect("/book.jsp");
 
 			return;
 		}

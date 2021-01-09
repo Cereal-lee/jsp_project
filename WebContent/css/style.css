@@ -140,3 +140,9 @@
 	height: 280px;
 	object-fit: cover;
 }
+
+.date{
+	width:60px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
