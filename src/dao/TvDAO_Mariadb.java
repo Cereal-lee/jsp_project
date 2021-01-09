@@ -48,7 +48,7 @@ public class TvDAO_Mariadb {
 	}
 	
 	public void tvAdd(TvVO vo) {
-		String sql = "insert into tv (title, date, context, score, image) values (?, ?, ?, ?, ?)";
+		String sql = "insert into tv (title, date, context, image) values (?, ?, ?, ?)";
 		
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -62,8 +62,7 @@ public class TvDAO_Mariadb {
 			ps.setString(1, vo.getTitle());
 			ps.setString(2, vo.getDate());
 			ps.setString(3, vo.getContext());
-			ps.setFloat(4, vo.getScore());
-			ps.setString(5, vo.getImage());
+			ps.setString(4, vo.getImage());
 			
 			row = ps.executeUpdate();
 			

@@ -25,11 +25,7 @@ public class BookServiceimpl implements BookService {
 		return dao.bookList();
 	}
 
-	@Override
-	public void bookAdd(BookVO vo) {
-		// TODO Auto-generated method stub
-		dao.bookAdd(vo);
-	}
+	
 
 	@Override
 	public void bookDelete(int bookId) {
@@ -61,6 +57,12 @@ public class BookServiceimpl implements BookService {
 
 	public void setDao(BookDAO_Mariadb dao) { //set
 		this.dao = dao;
+	}
+
+	@Override
+	public void bookAdd(BookVO vo) {
+		// TODO Auto-generated method stub
+		dao.bookAdd(vo);
 	}
 	
 	
