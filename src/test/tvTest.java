@@ -35,9 +35,10 @@ class tvTest {
 	void add() {
 		TvVO vo = new TvVO();
 		vo.setTitle("펜트하우스");
-		vo.setDate("2020-11-12");
+		vo.setDate("2020-11-23");
 		vo.setContext("펜트하우스 재밌어요 <br> 막장드라마지만 재밌음~");
 		vo.setScore((float) 3.5);
+		vo.setImage("test123.jpg");
 		
 		service.tvAdd(vo);
 		System.out.println("TV정보 등록 완료");
@@ -52,6 +53,7 @@ class tvTest {
 			vo.setDate("2021-01-01");
 			vo.setContext("수정 테스트 펜트하우스 -> 스위트홈");
 			vo.setScore((float) 3.5);
+			vo.setImage("수정한이미지.jpg");
 			service.tvUpdate(vo); //업데이트(가격 바꿈)
 			System.out.println( service.getTv(vo.getTvId()) ); //바뀐 가격으로 정보 업데이트되어 보여짐
 		}

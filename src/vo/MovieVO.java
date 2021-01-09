@@ -8,8 +8,14 @@ public class MovieVO {
 	private String date;
 	private Float score;
 	private String context;
+	private String image;
 	
-	
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
 	public int getMovieId() {
 		return movieId;
 	}

@@ -39,6 +39,7 @@ class bookTest {
 		vo.setWriter("김애란");
 		vo.setContext("강동원 송혜교 출연 영화로도 제작되었어요~");
 		vo.setScore((float) 4.5);
+		vo.setImage("테스트이미지.jpg");
 		
 		service.bookAdd(vo);
 		System.out.println("Book 등록 완료");
@@ -53,6 +54,7 @@ class bookTest {
 			vo.setWriter("정하연");
 			vo.setContext("수정 테스트 -> 달콤한 인생으로 수정 테스트입니다.");
 			vo.setScore((float) 3.5);
+			vo.setImage("수정테스트.jpg");
 			service.bookUpdate(vo); //업데이트(가격 바꿈)
 			System.out.println( service.getBook(vo.getBookId()) ); //바뀐 가격으로 정보 업데이트되어 보여짐
 		}

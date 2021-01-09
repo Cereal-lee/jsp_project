@@ -34,6 +34,7 @@ public class MovieDAO_Mariadb {
 				vo.setDate(rs.getString("date"));
 				vo.setScore(rs.getFloat("score"));
 				vo.setContext(rs.getString("context"));
+				vo.setImage(rs.getString("image"));
 				
 				list.add(vo);
 			}
@@ -47,7 +48,7 @@ public class MovieDAO_Mariadb {
 	}
 	
 	public void movieAdd(MovieVO vo) {
-		String sql = "insert into movie(title, date, context, score) values(?,?,?,?)";
+		String sql = "insert into movie(title, date, context, score, image) values(?,?,?,?,?)";
 		
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -61,7 +62,8 @@ public class MovieDAO_Mariadb {
 			ps.setString(1, vo.getTitle() );
 			ps.setString(2, vo.getDate() );
 			ps.setString(3, vo.getContext() );
-			ps.setDouble(4, vo.getScore() );
+			ps.setFloat(4, vo.getScore() );
+			ps.setString(5, vo.getImage());
 			
 			row = ps.executeUpdate();
 			
@@ -98,6 +100,7 @@ public class MovieDAO_Mariadb {
 				vo.setDate(rs.getString("date"));
 				vo.setScore(rs.getFloat("score"));
 				vo.setContext(rs.getString("context"));
+				vo.setImage(rs.getString("image"));
 				
 			} 
 
@@ -162,6 +165,7 @@ public class MovieDAO_Mariadb {
 				vo.setDate(rs.getString("date"));
 				vo.setScore(rs.getFloat("score"));
 				vo.setContext(rs.getString("context"));
+				vo.setImage(rs.getString("image"));
 				
 				list.add(vo);
 			}
@@ -178,7 +182,7 @@ public class MovieDAO_Mariadb {
 	
 	public void movieUpdate(MovieVO vo) {
 		
-		String sql = "update movie set title = ?, date = ?, score = ?, context = ? where movieId = ?";
+		String sql = "update movie set title = ?, date = ?, score = ?, context = ?, image = ? where movieId = ?";
 		
 		Connection con = null;
 		PreparedStatement ps = null; // SQL 관리
@@ -192,7 +196,9 @@ public class MovieDAO_Mariadb {
 			ps.setString(2, vo.getDate() );
 			ps.setDouble(3, vo.getScore() );
 			ps.setString(4, vo.getContext());
-			ps.setInt(5, vo.getMovieId());
+			ps.setString(5, vo.getImage());
+			ps.setInt(6, vo.getMovieId());
+			
 			
 
 			// sql문 실행

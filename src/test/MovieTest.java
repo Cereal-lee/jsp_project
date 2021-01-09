@@ -38,6 +38,7 @@ class MovieTest {
 		vo.setDate("2010-01-02");
 		vo.setScore((float)4.5);
 		vo.setContext("이건 연습용");
+		vo.setImage("테스트용.png");
 		
 		service.movieAdd(vo);
 		System.out.println("등록 되었습니다.");
@@ -60,7 +61,7 @@ class MovieTest {
 		}
 	}
 	
-	@Test
+//	@Test
 	void delete() {
 		MovieVO vo = service.getMovie(2);
 		if(vo != null) {
@@ -74,11 +75,12 @@ class MovieTest {
 	
 //	@Test
 	void update() {
-		MovieVO vo = service.getMovie(3);
+		MovieVO vo = service.getMovie(5);
 		if(vo != null) {
 			System.out.println(vo);
-			vo.setContext("수정테스트3");
+			vo.setContext("수정테스트5");
 			vo.setScore((float)4.3);
+			vo.setImage("수정용.jpg");
 			
 			service.movieUpdate(vo);
 			System.out.println(service.getMovie(3));

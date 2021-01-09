@@ -34,6 +34,7 @@ public class TvDAO_Mariadb {
 				vo.setDate(rs.getString("date"));
 				vo.setScore(rs.getFloat("score"));
 				vo.setContext(rs.getString("context"));
+				vo.setImage(rs.getString("image"));
 				
 				list.add(vo);
 			}
@@ -47,7 +48,7 @@ public class TvDAO_Mariadb {
 	}
 	
 	public void tvAdd(TvVO vo) {
-		String sql = "insert into tv (title, date, context, score) values (?, ?, ?, ?)";
+		String sql = "insert into tv (title, date, context, score, image) values (?, ?, ?, ?, ?)";
 		
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -62,6 +63,7 @@ public class TvDAO_Mariadb {
 			ps.setString(2, vo.getDate());
 			ps.setString(3, vo.getContext());
 			ps.setFloat(4, vo.getScore());
+			ps.setString(5, vo.getImage());
 			
 			row = ps.executeUpdate();
 			
@@ -101,7 +103,7 @@ public class TvDAO_Mariadb {
 	}
 	
 	public void tvUpdate(TvVO vo) {
-		String sql = "update tv set title = ?, date = ?, score = ?, context = ? where tvId = ?";
+		String sql = "update tv set title = ?, date = ?, score = ?, context = ?, image = ? where tvId = ?";
 		
 		Connection conn = null;
 		PreparedStatement ps = null; // SQL 관리
@@ -115,7 +117,8 @@ public class TvDAO_Mariadb {
 			ps.setString(2, vo.getDate()); // ?
 			ps.setFloat(3, vo.getScore());
 			ps.setString(4, vo.getContext());
-			ps.setInt(5, vo.getTvId());
+			ps.setString(5, vo.getImage());
+			ps.setInt(6, vo.getTvId());
 			
 			row = ps.executeUpdate();
 			
@@ -157,6 +160,8 @@ public class TvDAO_Mariadb {
 				vo.setDate(rs.getString("date"));
 				vo.setScore(rs.getFloat("score"));
 				vo.setContext(rs.getString("context"));
+				vo.setImage(rs.getString("image"));
+				
 				list.add(vo);
 			}
 					
@@ -190,6 +195,7 @@ public class TvDAO_Mariadb {
 				vo.setDate(rs.getString("date"));
 				vo.setScore(rs.getFloat("score"));
 				vo.setContext(rs.getString("context"));
+				vo.setImage(rs.getString("image"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
