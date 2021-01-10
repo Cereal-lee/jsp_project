@@ -48,9 +48,9 @@
 	</div>
 	
 	<div class="container">
-		<div id="carouselExample" class="carousel slide" data-interval="false"
+		<div id="tvRank" class="carousel slide" data-interval="false"
 			data-ride="carousel" data-pause="hover">
-			<div class="tit" style="margin-left: 35px;">TV 프로그램</div>
+			<div class="tit" style="margin-left: 35px;">한국 TV 프로그램 인기 순위</div>
 			<div class="carousel-inner" style="margin-left: 25px;">
 				<div class="carousel-item active">
 					<c:forEach var="data" items="${tvList}">
@@ -68,7 +68,23 @@
 						</c:if>
 					</c:forEach>
 				</div>
-				<div class="carousel-item">
+			</div>
+			<a class="carousel-control-prev" href="#tvRank"
+				role="button" data-slide="prev"> <span
+				class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+				class="sr-only">Previous</span>
+			</a> <a class="carousel-control-next" href="#tvRank"
+				role="button" data-slide="next"> <span
+				class="carousel-control-next-icon" aria-hidden="true"></span> <span
+				class="sr-only">Next</span>
+			</a>
+		</div>
+		
+		<div id="watchaRank" class="carousel slide" data-interval="false"
+			data-ride="carousel" data-pause="hover">
+			<div class="tit" style="margin-left: 35px;">왓챠 TV 프로그램 인기 순위</div>
+			<div class="carousel-inner" style="margin-left: 25px;">
+				<div class="carousel-item active">
 					<c:forEach var="data" items="${tvList}">
 						<c:if test="${data.tvId <= '15' and data.tvId > '10' }">
 							<a class="card cardImg" href="/tvinfo.do?tvId=${data.tvId}">
@@ -76,12 +92,20 @@
 						</c:if>
 					</c:forEach>
 				</div>
+				<div class="carousel-item">
+					<c:forEach var="data" items="${tvList}">
+						<c:if test="${data.tvId <= '20' and data.tvId > '15' }">
+							<a class="card cardImg" href="/tvinfo.do?tvId=${data.tvId}">
+							<img src="/upload/${data.image }">${data.title }<br>${data.date }</a>
+						</c:if>
+					</c:forEach>
+				</div>
 			</div>
-			<a class="carousel-control-prev" href="#carouselExample"
+			<a class="carousel-control-prev" href="#watchaRank"
 				role="button" data-slide="prev"> <span
 				class="carousel-control-prev-icon" aria-hidden="true"></span> <span
 				class="sr-only">Previous</span>
-			</a> <a class="carousel-control-next" href="#carouselExample"
+			</a> <a class="carousel-control-next" href="#watchaRank"
 				role="button" data-slide="next"> <span
 				class="carousel-control-next-icon" aria-hidden="true"></span> <span
 				class="sr-only">Next</span>

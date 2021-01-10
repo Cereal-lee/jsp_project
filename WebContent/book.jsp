@@ -43,9 +43,9 @@
 
 	<div class="container">
 
-		<div id="carouselControls" class="carousel slide"
+		<div id="allBest" class="carousel slide"
 			data-interval="false" data-ride="carousel" data-pause="hover">
-			<div class="tit" style="margin-left: 35px;">책</div>
+			<div class="tit" style="margin-left: 35px;">전체 베스트셀러</div>
 			<div class="carousel-inner" style="margin-left: 25px;">
 				<div class="carousel-item active">
 					<c:forEach var="data" items="${bookList}">
@@ -63,7 +63,22 @@
 						</c:if>
 					</c:forEach>
 				</div>
-				<div class="carousel-item">
+			</div>
+			
+			<a class="carousel-control-prev" href="#allBest"
+				role="button" data-slide="prev"> <span
+				class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span>
+			</a> <a class="carousel-control-next" href="#allBest"
+				role="button" data-slide="next"> <span
+				class="carousel-control-next-icon"></span> <span class="sr-only">Next</span>
+			</a>
+		</div>
+		
+		<div id="newBest" class="carousel slide"
+			data-interval="false" data-ride="carousel" data-pause="hover">
+			<div class="tit" style="margin-left: 35px;">신간 베스트셀러</div>
+			<div class="carousel-inner" style="margin-left: 25px;">
+				<div class="carousel-item active">
 					<c:forEach var="data" items="${bookList}">
 						<c:if test="${data.bookId <= '15' and data.bookId > '10' }">
 							<a class="card cardImg" href="/bookinfo.do?bookId=${data.bookId}">
@@ -71,12 +86,20 @@
 						</c:if>
 					</c:forEach>
 				</div>
+				<div class="carousel-item">
+					<c:forEach var="data" items="${bookList}">
+						<c:if test="${data.bookId <= '20' and data.bookId > '15' }">
+							<a class="card cardImg" href="/bookinfo.do?bookId=${data.bookId}">
+							<img src="/upload/${data.image }">${data.title }<br>${data.writer }</a>
+						</c:if>
+					</c:forEach>
+				</div>
 			</div>
 			
-			<a class="carousel-control-prev" href="#carouselControls"
+			<a class="carousel-control-prev" href="#newBest"
 				role="button" data-slide="prev"> <span
 				class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span>
-			</a> <a class="carousel-control-next" href="#carouselControls"
+			</a> <a class="carousel-control-next" href="#newBest"
 				role="button" data-slide="next"> <span
 				class="carousel-control-next-icon"></span> <span class="sr-only">Next</span>
 			</a>
