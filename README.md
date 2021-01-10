@@ -33,6 +33,11 @@
   <% @taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
   header에 넣어 core를 추가해준다.
   ```
+  DispatcherServlet안에
+  ```
+  @MultipartConfig(maxFileSize = 1024*1024*5)
+  ```
+  를 설정하합니다(5메가 크기 )
 ## 2021.01.10
   header 및 footer Css이미지 처리<br>
   각 테이블에 점수 들어갈 수 있도록 수정할 예정
