@@ -1,6 +1,7 @@
 @charset "utf-8";
 
 /* 헤더 영역 */
+
 .header h1 {float: left;}
 .header h1 em {padding: 15px 8px 5px 0; display: inline-block;}
 .header h1 em img {width: 130px; }
@@ -34,7 +35,7 @@ color:ff0000;
   width: 200px;
   height: 280px;
   object-fit: cover;
-  color:#666;
+  font-size: 14px; font-color: #f8f8f; text-decoration: none; color: gray !important;
 }
 .date{
 	width:60px;

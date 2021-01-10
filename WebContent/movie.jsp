@@ -57,24 +57,24 @@
 				<div class="carousel-item active">
 					<c:forEach var="data" items="${movieList}">
 						<c:if test="${data.movieId <= '5' }">
-							<a class="card cardImg"><img src="/upload/${data.image }"
-								onclick="location.href='/info.do?movieId=${data.movieId}'">${data.title }<br>${data.date }</a>
+							<a class="card cardImg" href="/movieinfo.do?movieId=${data.movieId}">
+							<img src="/upload/${data.image }">${data.title }<br>${data.date }</a>
 						</c:if>
 					</c:forEach>
 				</div>
 				<div class="carousel-item">
 					<c:forEach var="data" items="${movieList}">
 						<c:if test="${data.movieId <= '10' and data.movieId > '5' }">
-							<a class="card cardImg"><img src="/upload/${data.image }"
-								onclick="location.href='/info.do?movieId=${data.movieId}'">${data.title }<br>${data.date }</a>
+							<a class="card cardImg" href="/movieinfo.do?movieId=${data.movieId}">
+							<img src="/upload/${data.image }">${data.title }<br>${data.date }</a>
 						</c:if>
 					</c:forEach>
 				</div>
 				<div class="carousel-item">
 					<c:forEach var="data" items="${movieList}">
 						<c:if test="${data.movieId <= '15' and data.movieId > '10' }">
-							<a class="card cardImg"><img src="/upload/${data.image }"
-								onclick="location.href='/info.do?movieId=${data.movieId}'">${data.title }<br>${data.date }</a>
+							<a class="card cardImg" href="/movieinfo.do?movieId=${data.movieId}">
+							<img src="/upload/${data.image }">${data.title }<br>${data.date }</a>
 						</c:if>
 					</c:forEach>
 				</div>
