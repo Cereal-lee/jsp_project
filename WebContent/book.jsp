@@ -7,6 +7,13 @@
 <title>왓챠피디아</title>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<style>
+	.writer{
+		margin-top:10px;
+		margin-bottom:10px;
+		margin-left:15px;
+	}
+</style>
 
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
@@ -44,7 +51,7 @@
 					<c:forEach var="data" items="${bookList}">
 						<c:if test="${data.bookId <= '5' }">
 							<a class="card cardImg"><img src="/upload/${data.image }"
-								alt="해리포터">${data.title }<br>${data.writer }</a>
+								onclick="location.href='/info.do?bookId=${data.bookId}'">${data.title }<br>${data.writer }</a>
 						</c:if>
 					</c:forEach>
 				</div>
@@ -52,7 +59,7 @@
 					<c:forEach var="data" items="${bookList}">
 						<c:if test="${data.bookId <= '10' and data.bookId > '5' }">
 							<a class="card cardImg"><img src="/upload/${data.image }"
-								alt="해리포터">${data.title }<br>${data.writer }</a>
+								onclick="location.href='/info.do?bookId=${data.bookId}'">${data.title }<br>${data.writer }</a>
 						</c:if>
 					</c:forEach>
 				</div>
@@ -60,7 +67,7 @@
 					<c:forEach var="data" items="${bookList}">
 						<c:if test="${data.bookId <= '15' and data.bookId > '10' }">
 							<a class="card cardImg"><img src="/upload/${data.image }"
-								alt="해리포터">${data.title }<br>${data.writer }</a>
+								onclick="location.href='/info.do?bookId=${data.bookId}'">${data.title }<br>${data.writer }</a>
 						</c:if>
 					</c:forEach>
 				</div>

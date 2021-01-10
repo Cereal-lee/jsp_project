@@ -56,7 +56,7 @@
 					<c:forEach var="data" items="${tvList}">
 						<c:if test="${data.tvId <= '5' }">
 							<a class="card cardImg"><img src="/upload/${data.image }"
-								alt="해리포터">${data.title }<br>${data.date }</a>
+								onclick="location.href='/info.do?tvId=${data.tvId}'">${data.title }<br>${data.date }</a>
 						</c:if>
 					</c:forEach>
 				</div>
@@ -64,7 +64,7 @@
 					<c:forEach var="data" items="${tvList}">
 						<c:if test="${data.tvId <= '10' and data.tvId > '5' }">
 							<a class="card cardImg"><img src="/upload/${data.image }"
-								alt="해리포터">${data.title }<br>${data.date }</a>
+								onclick="location.href='/info.do?tvId=${data.tvId}'">${data.title }<br>${data.date }</a>
 						</c:if>
 					</c:forEach>
 				</div>
@@ -72,7 +72,7 @@
 					<c:forEach var="data" items="${tvList}">
 						<c:if test="${data.tvId <= '15' and data.tvId > '10' }">
 							<a class="card cardImg"><img src="/upload/${data.image }"
-								alt="해리포터">${data.title }<br>${data.date }</a>
+								onclick="location.href='/info.do?tvId=${data.tvId}'">${data.title }<br>${data.date }</a>
 						</c:if>
 					</c:forEach>
 				</div>
