@@ -10,16 +10,16 @@
 ## 2021.01.07
   Tv 테이블 구축 및 junit를 이용하여 데이터베이스 테스트 진행<br>
   header.jsp 파일 데이터베이스 연동 및 로그인 연동<br>
-  1)프로젝트를 우클릭 하여 Properties를 선택
-  2)Java Build Path를 선택
-  3)Libraries 탭에서 Add Library를 선택
-  4)선택하는 곳에서 JUnit 선택하여 라이브러리 추가
+  1)프로젝트를 우클릭 하여 Properties를 선택<br>
+  2)Java Build Path를 선택<br>
+  3)Libraries 탭에서 Add Library를 선택<br>
+  4)선택하는 곳에서 JUnit 선택하여 라이브러리 추가<br>
   ```
   @Before
   public void setUp() {
   }
   ```
-  이용하여 테스트 클래스 안의 메소드들이 테스트를 진행할 코드를 정의할 수 있다.
+  이용하여 테스트 클래스 안의 메소드들이 테스트를 진행할 코드를 정의할 수 있다.<br>
   ```
   @Test
   public void 클래스명{
