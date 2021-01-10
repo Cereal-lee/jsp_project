@@ -9,6 +9,7 @@ import java.sql.Date;
 import java.util.List;
 
 import util.JDBCUtil;
+import vo.MovieVO;
 import vo.TvVO;
 import vo.UserVO;
 
@@ -203,6 +204,34 @@ public class TvDAO_Mariadb {
 			JDBCUtil.close(conn, ps, rs);
 		}
 		return vo;
+	}
+	
+	public void scoreAdd(TvVO vo) {
+		String sql = "update tv set score = ? where tvId = ?";
+		
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		int row = 0;
+		
+		try {
+			conn = JDBCUtil.getConnection();
+			ps = conn.prepareStatement(sql); 
+			
+			ps.setFloat(1, vo.getScore());
+			ps.setInt(2, vo.getTvId());
+			
+			row = ps.executeUpdate();
+			
+			if(row == 0) {
+				throw new Exception("등록실패");
+			}
+			
+		} catch (Exception e) {
+			System.out.println("Error : " + e);
+		} finally {
+			JDBCUtil.close(conn, ps, rs);
+		}
 	}
 	
 }

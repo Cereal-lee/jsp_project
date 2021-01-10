@@ -220,5 +220,33 @@ public class MovieDAO_Mariadb {
 		}
 	}
 	
+	public void scoreAdd(MovieVO vo) {
+		String sql = "update movie set score = ? where movieId = ?";
+		
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		int row = 0;
+		
+		try {
+			conn = JDBCUtil.getConnection();
+			ps = conn.prepareStatement(sql); 
+			
+			ps.setFloat(1, vo.getScore());
+			ps.setInt(2, vo.getMovieId());
+			
+			row = ps.executeUpdate();
+			
+			if(row == 0) {
+				throw new Exception("등록실패");
+			}
+			
+		} catch (Exception e) {
+			System.out.println("Error : " + e);
+		} finally {
+			JDBCUtil.close(conn, ps, rs);
+		}
+	}
+	
 	
 }

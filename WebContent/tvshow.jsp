@@ -28,7 +28,6 @@
 	
 	<div class="container">
 		<c:if test="${login.role eq 'admin' }">
-		<div class="admin">
 			<h5>관리자 페이지</h5>
 			<h2>TV 프로그램 등록</h2>
 		<form action="addtv.do" method="post" enctype="multipart/form-data">
@@ -41,11 +40,10 @@
 					placeholder="일"> <br /> 
 			내용 :<br />  <textarea cols="50" rows="10" name="context"></textarea> <br /> 
 			<label>첨부파일 : <input type="file" name="image" value="image"></label> <br> 
-			<input class="ok" type="submit" value="등록"> 
+			<input type="submit" value="등록"> 
 			<input type="reset" value="초기화">
 
 		</form>
-		</div>
 		</c:if>
 	</div>
 	
@@ -57,24 +55,24 @@
 				<div class="carousel-item active">
 					<c:forEach var="data" items="${tvList}">
 						<c:if test="${data.tvId <= '5' }">
-							<a class="card cardImg"><img src="/upload/${data.image }"
-								alt="해리포터" onclick="location.href='/info.do?tvId=${data.tvId}'">${data.title }<br>${data.date }</a>
+							<a class="card cardImg" href="/tvinfo.do?tvId=${data.tvId}">
+							<img src="/upload/${data.image }">${data.title }<br>${data.date }</a>
 						</c:if>
 					</c:forEach>
 				</div>
 				<div class="carousel-item">
 					<c:forEach var="data" items="${tvList}">
 						<c:if test="${data.tvId <= '10' and data.tvId > '5' }">
-							<a class="card cardImg"><img src="/upload/${data.image }"
-								alt="해리포터">${data.title }<br>${data.date }</a>
+							<a class="card cardImg" href="/tvinfo.do?tvId=${data.tvId}">
+							<img src="/upload/${data.image }">${data.title }<br>${data.date }</a>
 						</c:if>
 					</c:forEach>
 				</div>
 				<div class="carousel-item">
 					<c:forEach var="data" items="${tvList}">
 						<c:if test="${data.tvId <= '15' and data.tvId > '10' }">
-							<a class="card cardImg"><img src="/upload/${data.image }"
-								alt="해리포터">${data.title }<br>${data.date }</a>
+							<a class="card cardImg" href="/tvinfo.do?tvId=${data.tvId}">
+							<img src="/upload/${data.image }">${data.title }<br>${data.date }</a>
 						</c:if>
 					</c:forEach>
 				</div>

@@ -25,14 +25,16 @@
 <body>
 	<!-- header -->
 	<header id="header">
+	<div class="container-fluid" style="height:100px; border-bottom:1px solid #bdbdbd;">
 		<div class="container">
 			<div class="row">
 				<div class="header clearfix">
+					
+					<nav class="nav" style="margin-left: 40px;">
 					<h1>
 						<a href="movie.do"> <em><img src="../img/logo.png" alt="WACHA"></em>
 						</a>
 					</h1>
-					<nav class="nav">
 						<ul class="clearfix">
 							<li><a href="movie.do">영화</a></li>
 							<li><a href="tvshow.do">TV프로그램</a></li>
@@ -45,8 +47,8 @@
 								<c:choose>
 									<c:when test="${not empty login }">
 										<form action="search.do" class="form-inline my-2 my-lg-0" method="POST">
-											<input class="form-control mr-sm-2" type="text" placeholder="작품을 검색해보세요" name="keyword">
-											<p style="margin-right: 15px; margin-left: 15px; margin-bottom:0px;">${login.name}님</p>
+											<input class="form-control mr-sm-2" type="text" placeholder="작품 제목, 작가를 검색해보세요" name="keyword">
+											<p class="nameNav">${login.name}님</p>
 											<button type="button" class="btn btn-outline-dark"
 												onclick="location.href='/logout.do' ">로그아웃</button>
 										</form>
@@ -55,7 +57,7 @@
 									<c:otherwise>
 
 										<form action="search.do" class="form-inline my-2 my-lg-0" method="POST">
-											<input class="form-control mr-sm-2" type="text" placeholder="작품을 검색해보세요" name="keyword">
+											<input class="form-control mr-sm-2" type="text" placeholder="작품 제목, 작가를 검색해보세요" name="keyword">
 											<button type="button" class="btn btn-link-secondary"
 												data-toggle="modal" data-target="#login">로그인</button>
 											<button type="button" class="btn btn-outline-dark"
@@ -145,6 +147,7 @@
 
 				</div>
 			</div>
+		</div>
 		</div>
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

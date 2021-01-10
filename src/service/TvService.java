@@ -2,6 +2,7 @@ package service;
 
 import java.util.List;
 
+import vo.MovieVO;
 import vo.TvVO;
 
 public interface TvService {
@@ -17,4 +18,5 @@ public interface TvService {
 	
 	public TvVO getTv(int tvId);
 	
+	public void scoreAdd(TvVO vo);
 }

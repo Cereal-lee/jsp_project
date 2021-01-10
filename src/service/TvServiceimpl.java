@@ -64,6 +64,13 @@ public class TvServiceimpl implements TvService {
 		// TODO Auto-generated method stub
 		return dao.getTv(tvId);
 	}
+
+	@Override
+	public void scoreAdd(TvVO vo) {
+		// TODO Auto-generated method stub
+		dao.scoreAdd(vo);
+	}
+
 	
 	
 	

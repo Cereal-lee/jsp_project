@@ -234,7 +234,7 @@ public class DispatcherServlet extends HttpServlet {
 			
 			service.tvAdd(vo);
 
-			response.sendRedirect("/tvshow.jsp");
+			response.sendRedirect("/");
 
 			return;
 		}
@@ -272,7 +272,7 @@ public class DispatcherServlet extends HttpServlet {
 			
 			service.bookAdd(vo);
 
-			response.sendRedirect("/book.jsp");
+			response.sendRedirect("/");
 
 			return;
 		}
@@ -321,6 +321,46 @@ public class DispatcherServlet extends HttpServlet {
 			}
 			return;
 		}
+		
+		if (action.equals("/movieinfo.do")) {
+
+			int movieId = Integer.parseInt(request.getParameter("movieId"));
+			MovieDAO_Mariadb dao = new MovieDAO_Mariadb();
+			MovieService service = new MovieServiceimpl(dao);
+			MovieVO vo = service.getMovie(movieId);
+
+			request.setAttribute("movie", vo);
+			getServletContext().getRequestDispatcher("/movieinfo.jsp").forward(request, response);
+
+			return;
+		}
+
+		if (action.equals("/tvinfo.do")) {
+
+			int tvId = Integer.parseInt(request.getParameter("tvId"));
+			TvDAO_Mariadb dao = new TvDAO_Mariadb();
+			TvService service = new TvServiceimpl(dao);
+			TvVO vo = service.getTv(tvId);
+
+			request.setAttribute("tv", vo);
+			getServletContext().getRequestDispatcher("/tvinfo.jsp").forward(request, response);
+
+			return;
+		}
+		
+		if (action.equals("/bookinfo.do")) {
+
+			int bookId = Integer.parseInt(request.getParameter("bookId"));
+			BookDAO_Mariadb dao = new BookDAO_Mariadb();
+			BookService service = new BookServiceimpl(dao);
+			BookVO vo = service.getBook(bookId);
+
+			request.setAttribute("book", vo);
+			getServletContext().getRequestDispatcher("/bookinfo.jsp").forward(request, response);
+
+			return;
+		}
+		
 	}
 	
 	

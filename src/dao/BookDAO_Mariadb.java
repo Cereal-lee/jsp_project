@@ -8,6 +8,7 @@ import java.util.List;
 
 import util.JDBCUtil;
 import vo.BookVO;
+import vo.MovieVO;
 import vo.TvVO;
 
 public class BookDAO_Mariadb {
@@ -203,5 +204,32 @@ public class BookDAO_Mariadb {
 		return vo;
 	}
 	
+	public void scoreAdd(BookVO vo) {
+		String sql = "update book set score = ? where bookId = ?";
+		
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		int row = 0;
+		
+		try {
+			conn = JDBCUtil.getConnection();
+			ps = conn.prepareStatement(sql); 
+			
+			ps.setFloat(1, vo.getScore());
+			ps.setInt(2, vo.getBookId());
+			
+			row = ps.executeUpdate();
+			
+			if(row == 0) {
+				throw new Exception("등록실패");
+			}
+			
+		} catch (Exception e) {
+			System.out.println("Error : " + e);
+		} finally {
+			JDBCUtil.close(conn, ps, rs);
+		}
+	}
 		
 }

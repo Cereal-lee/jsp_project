@@ -16,5 +16,5 @@ public interface MovieService {
 
 	public MovieVO getMovie(int i);
 	
-	
+	public void scoreAdd(MovieVO vo);
 }

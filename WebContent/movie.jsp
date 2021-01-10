@@ -12,6 +12,7 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
+
 <script>
     function numberMaxLength(e){
         if(e.value.length > e.maxLength){
@@ -27,10 +28,9 @@
 
 	<div class="container">
 		<c:if test="${login.role eq 'admin' }">
-		<div class="admin">
 			<h5>관리자 페이지</h5>
 			<h2>등록</h2>
-			<form " action="addmovie.do" method="post"
+			<form action="addmovie.do" method="post"
 				enctype="multipart/form-data">
 				타이틀 : <input type="text" name="title"> <br /> 
 				출시일 : <input class="date" type="number" name="year" maxlength='4'
@@ -42,14 +42,13 @@
 				내용 :<br />
 				<textarea cols="50" rows="10" name="context"></textarea>
 				<br /> <label>첨부파일 : <input type="file" name="image"></label>
-				<br> <input class="ok" type="submit" value="등록"> 
-						<input type="reset" value="초기화">
+				<br> <input type="submit" value="등록"> 
+				<input type="reset" value="초기화">
 
 			</form>
-			</div>
 		</c:if>
 	</div>
-
+	
 	<div class="container">
 		<div id="carouselExampleControls" class="carousel slide"
 			data-interval="false" data-ride="carousel" data-pause="hover">
@@ -58,24 +57,24 @@
 				<div class="carousel-item active">
 					<c:forEach var="data" items="${movieList}">
 						<c:if test="${data.movieId <= '5' }">
-							<a class="card cardImg"><img class="image_test" src="/upload/${data.image }"
-								alt="해리포터" onclick="location.href='/info.do?movieId=${data.movieId}'">${data.title }<br>${data.date }</a>
+							<a class="card cardImg" href="/movieinfo.do?movieId=${data.movieId}">
+							<img src="/upload/${data.image }">${data.title }<br>${data.date }</a>
 						</c:if>
 					</c:forEach>
 				</div>
 				<div class="carousel-item">
 					<c:forEach var="data" items="${movieList}">
 						<c:if test="${data.movieId <= '10' and data.movieId > '5' }">
-							<a class="card cardImg"><img src="/upload/${data.image }"
-								alt="해리포터">${data.title }<br>${data.date }</a>
+							<a class="card cardImg" href="/movieinfo.do?movieId=${data.movieId}">
+							<img src="/upload/${data.image }">${data.title }<br>${data.date }</a>
 						</c:if>
 					</c:forEach>
 				</div>
 				<div class="carousel-item">
 					<c:forEach var="data" items="${movieList}">
 						<c:if test="${data.movieId <= '15' and data.movieId > '10' }">
-							<a class="card cardImg"><img src="/upload/${data.image }"
-								alt="해리포터">${data.title }<br>${data.date }</a>
+							<a class="card cardImg" href="/movieinfo.do?movieId=${data.movieId}">
+							<img src="/upload/${data.image }">${data.title }<br>${data.date }</a>
 						</c:if>
 					</c:forEach>
 				</div>
@@ -92,7 +91,7 @@
 
 		</div>
 	</div>
-
+	
 	<%@ include file="common/footer.jsp"%>
 
 </body>

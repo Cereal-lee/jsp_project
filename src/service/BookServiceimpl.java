@@ -64,6 +64,12 @@ public class BookServiceimpl implements BookService {
 		// TODO Auto-generated method stub
 		dao.bookAdd(vo);
 	}
+
+	@Override
+	public void scoreAdd(BookVO vo) {
+		// TODO Auto-generated method stub
+		dao.scoreAdd(vo);
+	}
 	
 	
 }

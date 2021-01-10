@@ -55,6 +55,12 @@ public class MovieServiceimpl implements MovieService{
 		return dao.getMovie(i);
 	}
 
+	@Override
+	public void scoreAdd(MovieVO vo) {
+		// TODO Auto-generated method stub
+		dao.movieAdd(vo);
+	}
+
 	
 
 }

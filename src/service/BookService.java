@@ -3,6 +3,7 @@ package service;
 import java.util.List;
 
 import vo.BookVO;
+import vo.MovieVO;
 
 public interface BookService {
 
@@ -18,4 +19,5 @@ public interface BookService {
 	
 	public BookVO getBook(int bookId);
 	
+	public void scoreAdd(BookVO vo);
 }
