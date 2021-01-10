@@ -2,9 +2,6 @@
 
 /* 헤더 영역 */
 
-.header h1 {float: left;}
-.header h1 em {padding: 15px 8px 5px 0; display: inline-block;}
-.header h1 em img {width: 130px; }
 .header .nav {height: 50px;}
 .header .nav ul {display: block; padding: 19px 0px;  }
 .header .nav ul li {float: left; width: 110px; text-align: center;}

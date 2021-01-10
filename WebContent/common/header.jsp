@@ -15,6 +15,11 @@
 <!-- css -->
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/reset.css">
+<style type="text/css">
+.header h1 {float: left;}
+.header h1 em {padding: 15px 8px 5px 0; display: inline-block;}
+.header h1 em img {width: 130px; }
+</style>
 <!-- 웹 폰트 -->
 <link
 	href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&subset=korean"
@@ -32,7 +37,7 @@
 					
 					<nav class="nav" style="margin-left: 40px;">
 					<h1>
-						<a href="movie.do"> <em><img src="../img/logo.png" alt="WACHA"></em>
+						<a href="movie.do"> <em style="line-height: 1;"><img src="../img/logo.png" alt="WACHA"></em>
 						</a>
 					</h1>
 						<ul class="clearfix">
@@ -97,7 +102,7 @@
 
 										<!-- Modal footer -->
 										<div class="modal-footer">
-											<button type="button" class="btn btn-danger btn-block"
+											<button type="button" class="btn btn-secondary btn-block"
 												data-dismiss="modal">닫기</button>
 										</div>
 
@@ -133,7 +138,7 @@
 
 										<!-- Modal footer -->
 										<div class="modal-footer">
-											<button type="button" class="btn btn-danger btn-block"
+											<button type="button" class="btn btn-secondary btn-block"
 												data-dismiss="modal">닫기</button>
 										</div>
 
