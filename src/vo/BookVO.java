@@ -6,7 +6,16 @@ public class BookVO {
 	private String writer;
 	private Float score;
 	private String context;
+	private String image;
 	
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
 	public BookVO() {
 		super();
 		// TODO Auto-generated constructor stub

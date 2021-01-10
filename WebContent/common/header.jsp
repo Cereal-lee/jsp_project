@@ -29,120 +29,118 @@
 			<div class="row">
 				<div class="header clearfix">
 					<h1>
-						<a href="/"> <em><img src="../img/logo.png" alt="WACHA" ></em>
+						<a href="movie.do"> <em><img src="../img/logo.png" alt="WACHA"></em>
 						</a>
 					</h1>
 					<nav class="nav">
 						<ul class="clearfix">
-							<li><a href="/">영화</a></li>
+							<li><a href="movie.do">영화</a></li>
 							<li><a href="tvshow.do">TV프로그램</a></li>
 							<li><a href="book.do">책</a></li>
-						</ul>		
-						<div class="topright" style="margin-top:19px; margin-left:150px;">
+						</ul>
+						<div class="topright"
+							style="margin-top: 19px; margin-left: 150px;">
 							<div class="container">
-							
+
 								<c:choose>
 									<c:when test="${not empty login }">
-									<form class="form-inline my-2 my-lg-0">
-										<input class="form-control mr-sm-2" type="text"
-												placeholder="작품을 검색해보세요">
-										<p style="margin-right:15px; margin-left:15px;">${login.name}님</p>
-										<button type="button" class="btn btn-outline-dark" onclick="location.href='/logout.do' ">로그아웃</button>
-									</form>
-										<c:if test="${login.role eq 'admin' }">
-											관리자만 보입니다.
-										</c:if>
+										<form action="search.do" class="form-inline my-2 my-lg-0" method="POST">
+											<input class="form-control mr-sm-2" type="text" placeholder="작품을 검색해보세요" name="keyword">
+											<p class="nameNav">${login.name}님</p>
+											<button type="button" class="btn btn-outline-dark"
+												onclick="location.href='/logout.do' ">로그아웃</button>
+										</form>
+
 									</c:when>
 									<c:otherwise>
-									
-										<form class="form-inline my-2 my-lg-0">
-											<input class="form-control mr-sm-2" type="text"
-												placeholder="작품을 검색해보세요">
-											<button type="button" class="btn btn-outline-dark"
-												data-toggle="modal" data-target="#signIn">회원가입</button>
+
+										<form action="search.do" class="form-inline my-2 my-lg-0" method="POST">
+											<input class="form-control mr-sm-2" type="text" placeholder="작품을 검색해보세요" name="keyword">
 											<button type="button" class="btn btn-link-secondary"
 												data-toggle="modal" data-target="#login">로그인</button>
+											<button type="button" class="btn btn-outline-dark"
+												data-toggle="modal" data-target="#signIn">회원가입</button>
 										</form>
+							</div>
+							<div class="modal" id="signIn">
+								<div class="modal-dialog">
+									<div class="modal-content">
+
+										<!-- Modal Header -->
+										<div class="modal-header">
+											<h5 class="modal-title">회원가입</h5>
 										</div>
-										<div class="modal" id="signIn">
-											<div class="modal-dialog">
-												<div class="modal-content">
 
-													<!-- Modal Header -->
-													<div class="modal-header">
-														<h5 class="modal-title">회원가입</h5>
-													</div>
-
-													<!-- Modal body -->
-													<form action="register.do" method="POST" name="signForm"
-														onsubmit="return confirm('회원가입 하시겠습니까?')">
-														<div class="modal-body">
-															<div class="input-group mb-3">
-																<input type="text" class="form-control" name="name"
-																	placeholder="이름">
-															</div>
-															<div class="input-group mb-3">
-																<input type="email" class="form-control" name="email"
-																	placeholder="이메일">
-															</div>
-															<div class="input-group mb-3">
-																<input type="password" class="form-control"
-																	name="password" placeholder="비밀번호">
-															</div>
-															<input type="hidden" name="role" value="user"> <input
-																type="submit" class="btn btn-primary btn-block"
-																id="btnSign" value="회원가입">
-														</div>
-													</form>
-
-													<!-- Modal footer -->
-													<div class="modal-footer">
-														<button type="button" class="btn btn-danger btn-block"
-															data-dismiss="modal">닫기</button>
-													</div>
-
+										<!-- Modal body -->
+										<form action="register.do" method="POST" name="signForm"
+											onsubmit="return confirm('회원가입 하시겠습니까?')">
+											<div class="modal-body">
+												<div class="input-group mb-3">
+													<input type="text" class="form-control" name="name"
+														placeholder="이름">
 												</div>
-											</div>
-										</div>
-
-										<div class="modal" id="login">
-											<div class="modal-dialog">
-												<div class="modal-content">
-
-													<!-- Modal Header -->
-													<div class="modal-header">
-														<h5 class="modal-title">로그인</h5>
-													</div>
-
-													<!-- Modal body -->
-													<form action="login.do" method="POST" name="loginForm">
-														<div class="modal-body">
-															<div class="input-group mb-3">
-																<input type="email" class="form-control" name="email"
-																	placeholder="이메일">
-															</div>
-															<div class="input-group mb-3">
-																<input type="password" class="form-control"
-																	name="password" placeholder="비밀번호">
-															</div>
-															<input type="hidden" name="role" value="user"> <input
-																type="submit" class="btn btn-primary btn-block"
-																id="login" value="로그인">
-														</div>
-													</form>
-
-													<!-- Modal footer -->
-													<div class="modal-footer">
-														<button type="button" class="btn btn-danger btn-block"
-															data-dismiss="modal">닫기</button>
-													</div>
-
+												<div class="input-group mb-3">
+													<input type="email" class="form-control" name="email"
+														placeholder="이메일">
 												</div>
+												<div class="input-group mb-3">
+													<input type="password" class="form-control" name="password"
+														placeholder="비밀번호">
+												</div>
+												<input type="hidden" name="role" value="user"> <input
+													type="submit" class="btn btn-primary btn-block"
+													id="btnSign" value="회원가입">
 											</div>
+										</form>
+
+										<!-- Modal footer -->
+										<div class="modal-footer">
+											<button type="button" class="btn btn-danger btn-block"
+												data-dismiss="modal">닫기</button>
 										</div>
-									</c:otherwise>
-								</c:choose>
-						</ul>
+
+									</div>
+								</div>
+							</div>
+
+							<div class="modal" id="login">
+								<div class="modal-dialog">
+									<div class="modal-content">
+
+										<!-- Modal Header -->
+										<div class="modal-header">
+											<h5 class="modal-title">로그인</h5>
+										</div>
+
+										<!-- Modal body -->
+										<form action="login.do" method="POST" name="loginForm">
+											<div class="modal-body">
+												<div class="input-group mb-3">
+													<input type="email" class="form-control" name="email"
+														placeholder="이메일">
+												</div>
+												<div class="input-group mb-3">
+													<input type="password" class="form-control" name="password"
+														placeholder="비밀번호">
+												</div>
+												<input type="hidden" name="role" value="user"> <input
+													type="submit" class="btn btn-primary btn-block" id="login"
+													value="로그인">
+											</div>
+										</form>
+
+										<!-- Modal footer -->
+										<div class="modal-footer">
+											<button type="button" class="btn btn-danger btn-block"
+												data-dismiss="modal">닫기</button>
+										</div>
+
+									</div>
+								</div>
+							</div>
+							</c:otherwise>
+							</c:choose>
+							</ul>
 					</nav>
 
 				</div>
@@ -167,7 +165,6 @@
 			}
 			$('#btnSign').on('click', function(e) {
 				e.preventDefault();
-
 				let email = $.trim($('input[name="email"]').val());
 				if (!$('input[name="name"]').val()) {
 					alert('이름을 입력해주세요');
@@ -179,7 +176,6 @@
 					$('input[name="email"]').focus();
 					return false;
 				}
-
 				if (!isEmail(email)) {
 					alert('올바른 형식의 이메일을 입력해주세요');
 					$('input[name="email"]').focus();
@@ -192,6 +188,7 @@
 				}
 				$('form[name=signForm]').submit();
 			});
+			
 		</script>
 	</header>
 	<!-- //header -->

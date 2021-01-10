@@ -3,14 +3,11 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.sql.Date;
 import java.util.List;
 
 import util.JDBCUtil;
 import vo.TvVO;
-import vo.UserVO;
 
 public class TvDAO_Mariadb {
 	
@@ -34,6 +31,7 @@ public class TvDAO_Mariadb {
 				vo.setDate(rs.getString("date"));
 				vo.setScore(rs.getFloat("score"));
 				vo.setContext(rs.getString("context"));
+				vo.setImage(rs.getString("image"));
 				
 				list.add(vo);
 			}
@@ -47,7 +45,7 @@ public class TvDAO_Mariadb {
 	}
 	
 	public void tvAdd(TvVO vo) {
-		String sql = "insert into tv (title, date, context, score) values (?, ?, ?, ?)";
+		String sql = "insert into tv (title, date, context, image) values (?, ?, ?, ?)";
 		
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -61,12 +59,12 @@ public class TvDAO_Mariadb {
 			ps.setString(1, vo.getTitle());
 			ps.setString(2, vo.getDate());
 			ps.setString(3, vo.getContext());
-			ps.setFloat(4, vo.getScore());
+			ps.setString(4, vo.getImage());
 			
 			row = ps.executeUpdate();
 			
 			if (row == 0) {
-				throw new Exception("Îì±Î°ù Ïã§Ìå®");
+				throw new Exception("µÓ∑œ Ω«∆–");
 			}
 		} catch(Exception e) {
 			System.out.println("error" + e);
@@ -91,7 +89,7 @@ public class TvDAO_Mariadb {
 			row = ps.executeUpdate();
 			
 			if (row == 0) {
-				throw new Exception("ÏÇ≠Ï†ú Ïã§Ìå®");
+				throw new Exception("ªË¡¶ Ω«∆–");
 			}
 		} catch (Exception e) {
 			System.out.println("error" + e);
@@ -101,12 +99,12 @@ public class TvDAO_Mariadb {
 	}
 	
 	public void tvUpdate(TvVO vo) {
-		String sql = "update tv set title = ?, date = ?, score = ?, context = ? where tvId = ?";
+		String sql = "update tv set title = ?, date = ?, score = ?, context = ?, image = ? where tvId = ?";
 		
 		Connection conn = null;
-		PreparedStatement ps = null; // SQL Í¥ÄÎ¶¨
+		PreparedStatement ps = null; // SQL ∞¸∏Æ
 		ResultSet rs = null;
-		int row = 0; // Í≤∞Í≥º int Í∞íÏúºÎ°ú ÎèÑÏ∂ú
+		int row = 0; // ∞·∞˙ int ∞™¿∏∑Œ µµ√‚
 		
 		try {
 			conn = JDBCUtil.getConnection();
@@ -115,12 +113,13 @@ public class TvDAO_Mariadb {
 			ps.setString(2, vo.getDate()); // ?
 			ps.setFloat(3, vo.getScore());
 			ps.setString(4, vo.getContext());
-			ps.setInt(5, vo.getTvId());
+			ps.setString(5, vo.getImage());
+			ps.setInt(6, vo.getTvId());
 			
 			row = ps.executeUpdate();
 			
 			if (row == 0) {
-				throw new Exception("ÏàòÏ†ï Ïã§Ìå®"); 
+				throw new Exception("ºˆ¡§ Ω«∆–"); 
 			}
 			
 		} catch (Exception e) {
@@ -132,10 +131,9 @@ public class TvDAO_Mariadb {
 	}
 	
 	public List<TvVO> tvSearch(String condition, String keyword) {
-		int row = 0;
 		
 		String sql = "select * from tv where " + condition + " like ? order by title desc";
-		// select * from tv where title like '%Ìéú%';
+		// select * from tv where title like '%∆Ê%';
 		
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -157,6 +155,8 @@ public class TvDAO_Mariadb {
 				vo.setDate(rs.getString("date"));
 				vo.setScore(rs.getFloat("score"));
 				vo.setContext(rs.getString("context"));
+				vo.setImage(rs.getString("image"));
+				
 				list.add(vo);
 			}
 					
@@ -190,6 +190,7 @@ public class TvDAO_Mariadb {
 				vo.setDate(rs.getString("date"));
 				vo.setScore(rs.getFloat("score"));
 				vo.setContext(rs.getString("context"));
+				vo.setImage(rs.getString("image"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

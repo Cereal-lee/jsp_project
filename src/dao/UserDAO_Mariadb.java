@@ -1,7 +1,6 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.JDBCType;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -63,7 +62,7 @@ public class UserDAO_Mariadb {
 			row = ps.executeUpdate();
 			
 			if(row == 0) {
-				throw new Exception("ë“±ë¡ì‹¤íŒ¨");
+				throw new Exception("µî·Ï½ÇÆĞ");
 			}
 			
 		} catch (Exception e) {
@@ -78,7 +77,7 @@ public class UserDAO_Mariadb {
 		
 		
 		Connection con = null;
-		PreparedStatement ps = null; // SQL ê´€ë¦¬
+		PreparedStatement ps = null; // SQL °ü¸®
 		ResultSet rs = null;
 		UserVO vo = null;
 		
@@ -86,7 +85,7 @@ public class UserDAO_Mariadb {
 			con = JDBCUtil.getConnection();
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, id);
-			rs = ps.executeQuery(); // ê°€ì§€ê³ ìˆëŠ”ê±° ì‚¬ìš©í• ë•Œ ì‚¬ìš©
+			rs = ps.executeQuery(); // °¡Áö°íÀÖ´Â°Å »ç¿ëÇÒ¶§ »ç¿ë
 		 
 			while(rs.next() ) {
 				vo = new UserVO();
@@ -103,7 +102,7 @@ public class UserDAO_Mariadb {
 			System.out.println("Error :" + e);
 		} finally {
 
-			JDBCUtil.close(con, ps, rs); // ìì›ë°˜ë‚© í•„ìˆ˜
+			JDBCUtil.close(con, ps, rs); // ÀÚ¿ø¹İ³³ ÇÊ¼ö
 		}
 		return vo;
 	}
@@ -125,7 +124,7 @@ public class UserDAO_Mariadb {
 			row = ps.executeUpdate();
 			
 			if(row == 0) {
-				throw new Exception("ì‚­ì œ ì‹¤íŒ¨");
+				throw new Exception("»èÁ¦ ½ÇÆĞ");
 			}
 			
 		} catch(Exception e) {
@@ -170,14 +169,13 @@ public class UserDAO_Mariadb {
 	}
 	
 	public List<UserVO> userSearch(String condition, String keyword) {
-		int row = 0;
 		String sql = "select * from user where " + condition + " like ?";
 		
-		// select * from book where publisher like '%í•œ%';
+		// select * from book where publisher like '%ÇÑ%';
 		Connection con = null;
-		PreparedStatement ps = null; // SQL ê´€ë¦¬
+		PreparedStatement ps = null; // SQL °ü¸®
 		ResultSet rs = null;
-		List<UserVO> list = new ArrayList<UserVO>();		// is a ê´€ê³„
+		List<UserVO> list = new ArrayList<UserVO>();		// is a °ü°è
 															// 
 		
 		try {
@@ -185,7 +183,7 @@ public class UserDAO_Mariadb {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, "%" + keyword + "%");
 			
-			rs = ps.executeQuery(); // ê°€ì§€ê³ ìˆëŠ”ê±° ì‚¬ìš©í• ë•Œ ì‚¬ìš©
+			rs = ps.executeQuery(); // °¡Áö°íÀÖ´Â°Å »ç¿ëÇÒ¶§ »ç¿ë
 			
 			while(rs.next() ) {
 				UserVO vo = new UserVO();
@@ -204,7 +202,7 @@ public class UserDAO_Mariadb {
 			System.out.println("Error :" + e);
 		} finally {
 
-			JDBCUtil.close(con, ps, rs); // ìì›ë°˜ë‚© í•„ìˆ˜
+			JDBCUtil.close(con, ps, rs); // ÀÚ¿ø¹İ³³ ÇÊ¼ö
 		}
 		return list;
 

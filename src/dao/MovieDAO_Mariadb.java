@@ -1,7 +1,6 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -9,7 +8,6 @@ import java.util.List;
 
 import util.JDBCUtil;
 import vo.MovieVO;
-import vo.UserVO;
 
 
 public class MovieDAO_Mariadb {
@@ -34,6 +32,7 @@ public class MovieDAO_Mariadb {
 				vo.setDate(rs.getString("date"));
 				vo.setScore(rs.getFloat("score"));
 				vo.setContext(rs.getString("context"));
+				vo.setImage(rs.getString("image"));
 				
 				list.add(vo);
 			}
@@ -47,7 +46,7 @@ public class MovieDAO_Mariadb {
 	}
 	
 	public void movieAdd(MovieVO vo) {
-		String sql = "insert into movie(title, date, context, score) values(?,?,?,?)";
+		String sql = "insert into movie(title, date, context, image) values(?,?,?,?)";
 		
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -61,12 +60,12 @@ public class MovieDAO_Mariadb {
 			ps.setString(1, vo.getTitle() );
 			ps.setString(2, vo.getDate() );
 			ps.setString(3, vo.getContext() );
-			ps.setDouble(4, vo.getScore() );
+			ps.setString(4, vo.getImage());
 			
 			row = ps.executeUpdate();
 			
 			if(row == 0) {
-				throw new Exception("ë“±ë¡ì‹¤íŒ¨");
+				throw new Exception("µî·Ï½ÇÆĞ");
 			}
 			
 		} catch (Exception e) {
@@ -80,7 +79,7 @@ public class MovieDAO_Mariadb {
 		String sql = "select * from movie where movieId = ?";
 		
 		Connection con = null;
-		PreparedStatement ps = null; // SQL ê´€ë¦¬
+		PreparedStatement ps = null; // SQL °ü¸®
 		ResultSet rs = null;
 		MovieVO vo = null;
 		
@@ -88,9 +87,9 @@ public class MovieDAO_Mariadb {
 			con = JDBCUtil.getConnection();
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, i);
-			rs = ps.executeQuery(); // ê°€ì§€ê³ ìˆëŠ”ê±° ì‚¬ìš©í• ë•Œ ì‚¬ìš©
+			rs = ps.executeQuery(); // °¡Áö°íÀÖ´Â°Å »ç¿ëÇÒ¶§ »ç¿ë
 			
-			// ê²°ê³¼ê°’ ì²˜ë¦¬
+			// °á°ú°ª Ã³¸®
 			while(rs.next()) {
 				vo = new MovieVO();
 				vo.setMovieId(rs.getInt("movieId"));
@@ -98,6 +97,7 @@ public class MovieDAO_Mariadb {
 				vo.setDate(rs.getString("date"));
 				vo.setScore(rs.getFloat("score"));
 				vo.setContext(rs.getString("context"));
+				vo.setImage(rs.getString("image"));
 				
 			} 
 
@@ -106,7 +106,7 @@ public class MovieDAO_Mariadb {
 			System.out.println("Error :" + e);
 		} finally {
 
-			JDBCUtil.close(con, ps, rs); // ìì›ë°˜ë‚© í•„ìˆ˜
+			JDBCUtil.close(con, ps, rs); // ÀÚ¿ø¹İ³³ ÇÊ¼ö
 		}
 		return vo;
 	}
@@ -127,7 +127,7 @@ public class MovieDAO_Mariadb {
 			row = ps.executeUpdate();
 			
 			if(row == 0) {
-				throw new Exception("ì‚­ì œ ì‹¤íŒ¨");
+				throw new Exception("»èÁ¦ ½ÇÆĞ");
 			}
 			
 		} catch(Exception e) {
@@ -138,7 +138,6 @@ public class MovieDAO_Mariadb {
 	}
 	
 	public List<MovieVO> movieSearch(String condition, String keyword) {
-		int row = 0;
 		
 		String sql = "select * from movie where " + condition + " like ?";
 		
@@ -152,7 +151,7 @@ public class MovieDAO_Mariadb {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, "%" + keyword + "%");
 			
-			rs = ps.executeQuery(); // ê°€ì§€ê³ ìˆëŠ”ê±° ì‚¬ìš©í• ë•Œ ì‚¬ìš©
+			rs = ps.executeQuery(); // °¡Áö°íÀÖ´Â°Å »ç¿ëÇÒ¶§ »ç¿ë
 			
 			while(rs.next() ) {
 				MovieVO vo = new MovieVO();
@@ -162,6 +161,7 @@ public class MovieDAO_Mariadb {
 				vo.setDate(rs.getString("date"));
 				vo.setScore(rs.getFloat("score"));
 				vo.setContext(rs.getString("context"));
+				vo.setImage(rs.getString("image"));
 				
 				list.add(vo);
 			}
@@ -171,19 +171,19 @@ public class MovieDAO_Mariadb {
 			System.out.println("Error :" + e);
 		} finally {
 
-			JDBCUtil.close(con, ps, rs); // ìì›ë°˜ë‚© í•„ìˆ˜
+			JDBCUtil.close(con, ps, rs); // ÀÚ¿ø¹İ³³ ÇÊ¼ö
 		}
 		return list;
 	}
 	
 	public void movieUpdate(MovieVO vo) {
 		
-		String sql = "update movie set title = ?, date = ?, score = ?, context = ? where movieId = ?";
+		String sql = "update movie set title = ?, date = ?, score = ?, context = ?, image = ? where movieId = ?";
 		
 		Connection con = null;
-		PreparedStatement ps = null; // SQL ê´€ë¦¬
+		PreparedStatement ps = null; // SQL °ü¸®
 		ResultSet rs = null;
-		int row = 0; // ê²°ê³¼ int ê°’ìœ¼ë¡œ ë„ì¶œ
+		int row = 0; // °á°ú int °ªÀ¸·Î µµÃâ
 
 		try {
 			con = JDBCUtil.getConnection();
@@ -192,18 +192,20 @@ public class MovieDAO_Mariadb {
 			ps.setString(2, vo.getDate() );
 			ps.setDouble(3, vo.getScore() );
 			ps.setString(4, vo.getContext());
-			ps.setInt(5, vo.getMovieId());
+			ps.setString(5, vo.getImage());
+			ps.setInt(6, vo.getMovieId());
+			
 			
 
-			// sqlë¬¸ ì‹¤í–‰
-			// ps.executeQuery(); // ê°€ì§€ê³ ìˆëŠ”ê±° ì‚¬ìš©í• ë•Œ ì‚¬ìš©
+			// sql¹® ½ÇÇà
+			// ps.executeQuery(); // °¡Áö°íÀÖ´Â°Å »ç¿ëÇÒ¶§ »ç¿ë
 
-			row = ps.executeUpdate(); // ìƒíƒœ ë³€í™” í• ë•Œ ì‚¬ìš©
+			row = ps.executeUpdate(); // »óÅÂ º¯È­ ÇÒ¶§ »ç¿ë
 
-			// ê²°ê³¼ê°’ ì²˜ë¦¬
+			// °á°ú°ª Ã³¸®
 
 			if (row == 0) {
-				throw new Exception("ìˆ˜ì • ì‹¤íŒ¨"); // ì˜ˆì™¸ ê°ì²´ ìƒì„±
+				throw new Exception("¼öÁ¤ ½ÇÆĞ"); // ¿¹¿Ü °´Ã¼ »ı¼º
 			}
 
 		} catch (Exception e) {
@@ -211,7 +213,7 @@ public class MovieDAO_Mariadb {
 			System.out.println("Error :" + e);
 		} finally {
 
-			JDBCUtil.close(con, ps, rs); // ìì›ë°˜ë‚© í•„ìˆ˜
+			JDBCUtil.close(con, ps, rs); // ÀÚ¿ø¹İ³³ ÇÊ¼ö
 		}
 	}
 	
