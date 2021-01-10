@@ -62,7 +62,7 @@ footer {
 
 	<div class="container-fluid">
 
-		<footer class="bm_left">
+		<footer class="bm_left" style="margin-top: 40px;">
 			<div class="container">
 				<div style="margin-left: 20px;">
 					<br> <a
