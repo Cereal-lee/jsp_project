@@ -104,7 +104,7 @@ footer {
 				<div class="ftn">주식회사 왓챠 | 대표 아무개 | 서을특별시 서초구 강남대로 343 신덕빌딩 3층</div>
 				<div class="ftn">사업자 등록 번호 123-45-67890</div>
 				<div class="ftn" style="margin-top: 10px;">
-					<img src="../img/ui.png" style="width: 40px; height: 40px;">
+					<img src="../img/ui2.png" style="width: 40px; height: 40px;">
 					2011 Watcha.lnc
 				</div>
 				

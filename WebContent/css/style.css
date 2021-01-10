@@ -11,7 +11,7 @@
 .header .nav ul li a { font-size: 18px; font-weight: 500; color: #444; line-height: 50px;}
 .mr-sm-2 {margin-top: 6px; float: right; }
 .btn { margin-top: 6px;}
-.nameNav{ margin-right: 13px; margin-left: 14px; margin-bottom: 0px; margin-top: 5px;}
+.nameNav{ margin-right: 16px; margin-left: 10px; margin-bottom: 0px; margin-top: 5px;}
 
 
 .card {
@@ -47,6 +47,16 @@ color:ff0000;
 }
 .ok{
 	margin-right:10px;}
+	
+.carousel-control-prev{
+	height: 100px;
+    margin-top: 150px;
+}
+
+.carousel-control-next{
+	height: 100px;
+    margin-top: 150px;
+}
 
 /* 푸터 */
 .bm_left {float: left;}

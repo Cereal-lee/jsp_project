@@ -36,9 +36,9 @@
 						</a>
 					</h1>
 						<ul class="clearfix">
-							<li><a href="movie.do">영화</a></li>
+							<li style="width: 90px;"><a href="movie.do">영화</a></li>
 							<li><a href="tvshow.do">TV프로그램</a></li>
-							<li><a href="book.do">책</a></li>
+							<li style="width: 90px;"><a href="book.do">책</a></li>
 						</ul>
 						<div class="topright"
 							style="margin-top: 19px; margin-left: 150px;">
@@ -46,7 +46,7 @@
 
 								<c:choose>
 									<c:when test="${not empty login }">
-										<form action="search.do" class="form-inline my-2 my-lg-0" method="POST">
+										<form action="search.do" class="form-inline my-2 my-lg-0" style="margin-left: 48px;" method="POST">
 											<input class="form-control mr-sm-2" type="text" placeholder="작품 제목, 작가를 검색해보세요" name="keyword">
 											<p class="nameNav">${login.name}님</p>
 											<button type="button" class="btn btn-outline-dark"
@@ -56,9 +56,9 @@
 									</c:when>
 									<c:otherwise>
 
-										<form action="search.do" class="form-inline my-2 my-lg-0" method="POST">
+										<form action="search.do" class="form-inline my-2 my-lg-0" style="margin-left: 48px;" method="POST">
 											<input class="form-control mr-sm-2" type="text" placeholder="작품 제목, 작가를 검색해보세요" name="keyword">
-											<button type="button" class="btn btn-link-secondary"
+											<button type="button" class="btn btn-link-secondary" style="padding-right: 16px; padding-left: 10px;"
 												data-toggle="modal" data-target="#login">로그인</button>
 											<button type="button" class="btn btn-outline-dark"
 												data-toggle="modal" data-target="#signIn">회원가입</button>
