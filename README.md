@@ -114,5 +114,5 @@
   css merge(font/footer)
   
 ## 2021.01.10
-  info 추가(상세페이지)
-  전체 페이지 css 조정
+info 추가(상세페이지)<br>
+전체 페이지 css 조정
