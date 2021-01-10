@@ -61,6 +61,8 @@
   ```
   jstl로 login상태와 !login상태에서 보이는 페이지에 차이가 있게함<br>
   ```
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+  
   <c:choose>
 	<c:when test="${not empty login }">
       	내용
