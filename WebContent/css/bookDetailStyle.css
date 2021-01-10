@@ -1,0 +1,124 @@
+.box-dec {
+	display: flex;
+	flex-direction: column;
+	border-top: solid 12px #000;
+	padding: 30px;;
+}
+
+.box-dec-header {
+	flex: 1; /* flex: 1 1 0 */
+	overflow: auto;
+}
+
+#bookTitle, #bookInfo {
+	margin-bottom: 0.5rem;
+}
+
+section {
+	padding: 30px 0;
+}
+
+.sec-header {
+	margin-bottom: 50px;
+}
+
+.purchase-info {
+	display: flex;
+	align-items: center;
+	border-bottom: solid 1px #000;
+}
+
+.purchase-info dd {
+	flex-grow: 1;
+	text-align: right;
+}
+
+.purchase-info dd::after {
+	content: '원';
+	display: inline;
+	width: fit-content;
+	height: fit-content;
+}
+
+#ori-price {
+	text-decoration: line-through;
+}
+
+#sale-price {
+	font-weight: bold;
+	font-size: 2.5rem;
+}
+
+/*  */
+.bookcover-options {
+	margin-top: 12px;
+	display: flex;
+	justify-content: center;
+}
+
+.bookcover-options>* {
+	margin: 0 6px;
+	font-size: 0.785rem;
+}
+
+.btn {
+	font-weight: bold;
+	letter-spacing: 1.5;
+}
+
+.btnCart {
+	padding: 26px;
+	border: solid 1px #000;
+	border-radius: 0;
+}
+
+.btnBuy {
+	padding: 26px;
+	background-color: #000;
+	color: #fff;
+	border-radius: 0;
+}
+
+.btnBuy:hover {
+	box-shadow: 0px 0px 10px #000;
+}
+
+/*  */
+.sec-book-dec>.sec-title {
+	margin-bottom: 1rem;
+}
+
+#bookDetail {
+	margin-bottom: 2.5rem;
+}
+
+/* card-review */
+.card-review {
+	background-color: #F0F0F0;
+	padding: 30px;
+}
+
+/* card-review-header */
+.card-review-header {
+	margin-bottom: 12px;
+}
+
+.reviewUserId {
+	font-size: 0.875rem;
+	margin-right: 0.5rem;
+}
+
+/* review-score */
+.review-score {
+	margin: 0 12px;
+}
+
+/* top-divider */
+.top-divider::before {
+	display: block;
+	content: '';
+	width: 100%;
+	height: 0.8px;
+	background-color: #000;
+	margin-bottom: 4.5rem;
+}

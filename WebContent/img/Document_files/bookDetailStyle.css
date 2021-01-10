@@ -1,0 +1,17 @@
+.box-dec {
+	display: flex;
+	flex-direction: column;
+	border-top: solid 12px #000;
+	padding: 30px;;
+}
+
+/* card-review */
+.card-review {
+	background-color: #F0F0F0;
+	padding: 30px;
+}
+
+/* review-score */
+.review-score {
+	margin: 0 12px;
+}

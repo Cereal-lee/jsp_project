@@ -23,7 +23,61 @@ margin-bottom:100px;
 
 .tit {
 width:0 auto;
+height:0 auto;@charset "utf-8";
+
+/* 헤더 영역 */
+
+.header h1 {float: left;}
+.header h1 em {padding: 15px 8px 5px 0; display: inline-block;}
+.header h1 em img {width: 130px; }
+.header .nav {height: 50px;}
+.header .nav ul {display: block; padding: 19px 0px;  }
+.header .nav ul li {float: left; width: 110px; text-align: center;}
+.header .nav ul li a { font-size: 18px; font-weight: 500; color: #444; line-height: 50px;}
+.mr-sm-2 {margin-top: 6px; float: right; }
+.btn { margin-top: 6px;}
+.nameNav{ margin-right: 13px; margin-left: 14px; margin-bottom: 0px; margin-top: 5px;}
+
+
+.card {
+margin-top:30px;
+margin-left:10px;
+margin-right:0px;
+margin-bottom:100px;
+ float: left;
+}
+
+.tit {
+width:0 auto;
 height:0 auto;
+margin-top:20px;
+margin-left:50px;
+font-size:20px;
+color:ff0000;
+}
+
+.cardImg {
+  width: 200px;
+  height: 280px;
+  object-fit: cover;
+  font-size: 14px; font-color: #f8f8f; text-decoration: none; color: gray !important;
+}
+.date{
+	width:60px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.admin{
+	margin-left:40px;
+}
+.ok{
+	margin-right:10px;}
+
+/* 푸터 */
+.bm_left {float: left;}
+.bm_left ul {padding-top: 23px;}
+.bm_left li {display: inline; margin-left: 28px; float: left; font-color: #e0e0e0;}
+.bm_left li a {font-size: 14px; font-color: #f8f8f; text-decoration: none; color: gray !important;}
 margin-top:20px;
 margin-left:50px;
 font-size:20px;
