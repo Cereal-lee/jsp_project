@@ -11,6 +11,7 @@ import java.sql.Statement;
 import java.util.Properties;
 
 public class JDBCUtil {
+	
 	public static Connection getConnection() {
 		Connection conn = null;
 		
@@ -54,4 +55,5 @@ public class JDBCUtil {
 		}
 		
 	}
+	
 }

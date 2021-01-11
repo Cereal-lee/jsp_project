@@ -7,12 +7,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="../css/reset.css">
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/reset.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 <style>
 footer {
 	width: 100%;
@@ -95,16 +96,16 @@ footer {
 					070-7554-9696</div>
 				<div class="ig" style="margin-right: 40px;">
 					<a href="https://www.facebook.com/watchaKR/"><img
-						src="../img/페이스북.png" /></a> <a href="https://twitter.com/watcha_kr"><img
-						src="../img/트위터.png" /></a> <a
+						src="${pageContext.request.contextPath}/img/페이스북.png" /></a> <a href="https://twitter.com/watcha_kr"><img
+						src="${pageContext.request.contextPath}/img/트위터.png" /></a> <a
 						href="https://www.instagram.com/watcha_kr/"><img
-						src="../img/인스타.png" /></a>
+						src="${pageContext.request.contextPath}/img/인스타.png" /></a>
 				</div>	
 				<br>
 				<div class="ftn">주식회사 왓챠 | 대표 아무개 | 서을특별시 서초구 강남대로 343 신덕빌딩 3층</div>
 				<div class="ftn">사업자 등록 번호 123-45-67890</div>
 				<div class="ftn" style="margin-top: 10px;">
-					<img src="../img/ui2.png" style="width: 40px; height: 40px;">
+					<img src="${pageContext.request.contextPath}/img/ui2.png" style="width: 40px; height: 40px;">
 					2011 Watcha.lnc
 				</div>
 				

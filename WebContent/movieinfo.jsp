@@ -12,7 +12,7 @@
         * { line-height: 1.63; }
     </style>
     
-    <link rel="stylesheet" href="/css/info.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/info.css">
 </head>
 <body>
 	<%@ include file="common/header.jsp"%>
@@ -23,7 +23,7 @@
 	                <div class="box-bookcover col-4 d-flex flex-column">
 	                        <!-- TODO : box -->
 	                        <div class="bookcover">
-	                            <img src="/upload/${movie.image }" style="width: 300px; height: 450px;" class="card-img" alt="amond">
+	                            <img src="${pageContext.request.contextPath}/img/${movie.image }" style="width: 300px; height: 450px;" class="card-img" alt="amond">
 	                        </div>
 	                    </div>
 	            </div>

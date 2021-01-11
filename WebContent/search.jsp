@@ -26,8 +26,8 @@
 			<div class="carousel-inner" style="margin-left: 25px;">
 				<div class="carousel-item active">
 					<c:forEach var="data" items="${movieList}">
-						<a class="card cardImg" href="/movieinfo.do?movieId=${data.movieId}">
-						<img src="/upload/${data.image }">${data.title }<br>${data.date }</a>
+						<a class="card cardImg" href="${pageContext.request.contextPath}/movieinfo.do?movieId=${data.movieId}">
+						<img src="${pageContext.request.contextPath}/img/${data.image }">${data.title }<br>${data.date }</a>
 					</c:forEach>
 				</div>
 			</div>
@@ -39,8 +39,8 @@
 			<div class="carousel-inner" style="margin-left: 25px;">
 				<div class="carousel-item active">
 					<c:forEach var="data" items="${tvList}">
-						<a class="card cardImg" href="/tvinfo.do?tvId=${data.tvId}">
-						<img src="/upload/${data.image }">${data.title }<br>${data.date }</a>
+						<a class="card cardImg" href="${pageContext.request.contextPath}/tvinfo.do?tvId=${data.tvId}">
+						<img src="${pageContext.request.contextPath}/img/${data.image }">${data.title }<br>${data.date }</a>
 					</c:forEach>
 				</div>
 			</div>
@@ -52,12 +52,12 @@
 			<div class="carousel-inner" style="margin-left: 25px;">
 				<div class="carousel-item active">
 					<c:forEach var="data" items="${bookListTitle}">
-						<a class="card cardImg" href="/bookinfo.do?bookId=${data.bookId}">
-						<img src="/upload/${data.image }">${data.title }<br>${data.writer }</a>
+						<a class="card cardImg" href="${pageContext.request.contextPath}/bookinfo.do?bookId=${data.bookId}">
+						<img src="${pageContext.request.contextPath}/img/${data.image }">${data.title }<br>${data.writer }</a>
 					</c:forEach>
 					<c:forEach var="data" items="${bookListWriter}">
-						<a class="card cardImg" href="/bookinfo.do?bookId=${data.bookId}">
-						<img src="/upload/${data.image }">${data.title }<br>${data.writer }</a>
+						<a class="card cardImg" href="${pageContext.request.contextPath}/bookinfo.do?bookId=${data.bookId}">
+						<img src="${pageContext.request.contextPath}/img/${data.image }">${data.title }<br>${data.writer }</a>
 					</c:forEach>
 				</div>
 			</div>

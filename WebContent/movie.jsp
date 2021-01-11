@@ -57,24 +57,24 @@
 				<div class="carousel-item active">
 					<c:forEach var="data" items="${movieList}">
 						<c:if test="${data.movieId <= '5' }">
-							<a class="card cardImg" href="/movieinfo.do?movieId=${data.movieId}">
-							<img src="/upload/${data.image }">${data.title }<br>${data.date }</a>
+							<a class="card cardImg" href="${pageContext.request.contextPath}/movieinfo.do?movieId=${data.movieId}">
+							<img src="${pageContext.request.contextPath}/img/${data.image }">${data.title }<br>${data.date }</a>
 						</c:if>
 					</c:forEach>
 				</div>
 				<div class="carousel-item">
 					<c:forEach var="data" items="${movieList}">
 						<c:if test="${data.movieId <= '10' and data.movieId > '5' }">
-							<a class="card cardImg" href="/movieinfo.do?movieId=${data.movieId}">
-							<img src="/upload/${data.image }">${data.title }<br>${data.date }</a>
+							<a class="card cardImg" href="${pageContext.request.contextPath}/movieinfo.do?movieId=${data.movieId}">
+							<img src="${pageContext.request.contextPath}/img/${data.image }">${data.title }<br>${data.date }</a>
 						</c:if>
 					</c:forEach>
 				</div>
 				<div class="carousel-item">
 					<c:forEach var="data" items="${movieList}">
 						<c:if test="${data.movieId <= '15' and data.movieId > '10' }">
-							<a class="card cardImg" href="/movieinfo.do?movieId=${data.movieId}">
-							<img src="/upload/${data.image }">${data.title }<br>${data.date }</a>
+							<a class="card cardImg" href="${pageContext.request.contextPath}/movieinfo.do?movieId=${data.movieId}">
+							<img src="${pageContext.request.contextPath}/img/${data.image }">${data.title }<br>${data.date }</a>
 						</c:if>
 					</c:forEach>
 				</div>
@@ -98,16 +98,16 @@
 				<div class="carousel-item active">
 					<c:forEach var="data" items="${movieList}">
 						<c:if test="${data.movieId <= '20' and data.movieId > '15' }">
-							<a class="card cardImg" href="/movieinfo.do?movieId=${data.movieId}">
-							<img src="/upload/${data.image }">${data.title }<br>${data.date }</a>
+							<a class="card cardImg" href="${pageContext.request.contextPath}/movieinfo.do?movieId=${data.movieId}">
+							<img src="${pageContext.request.contextPath}/img/${data.image }">${data.title }<br>${data.date }</a>
 						</c:if>
 					</c:forEach>
 				</div>
 				<div class="carousel-item">
 					<c:forEach var="data" items="${movieList}">
 						<c:if test="${data.movieId <= '25' and data.movieId > '20' }">
-							<a class="card cardImg" href="/movieinfo.do?movieId=${data.movieId}">
-							<img src="/upload/${data.image }">${data.title }<br>${data.date }</a>
+							<a class="card cardImg" href="${pageContext.request.contextPath}/movieinfo.do?movieId=${data.movieId}">
+							<img src="${pageContext.request.contextPath}/img/${data.image }">${data.title }<br>${data.date }</a>
 						</c:if>
 					</c:forEach>
 				</div>

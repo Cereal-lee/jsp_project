@@ -13,8 +13,8 @@
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
 <!-- css -->
-<link rel="stylesheet" href="../css/style.css">
-<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/reset.css">
 <style type="text/css">
 .header h1 {float: left;}
 .header h1 em {padding: 15px 8px 5px 0; display: inline-block;}
@@ -37,7 +37,7 @@
 					
 					<nav class="nav" style="margin-left: 40px;">
 					<h1>
-						<a href="movie.do"> <em style="line-height: 1;"><img src="../img/logo.png" alt="WACHA"></em>
+						<a href="movie.do"> <em style="line-height: 1;"><img src="${pageContext.request.contextPath}/img/logo.png" alt="WACHA"></em>
 						</a>
 					</h1>
 						<ul class="clearfix">
@@ -55,7 +55,7 @@
 											<input class="form-control mr-sm-2" type="text" placeholder="작품 제목, 작가를 검색해보세요" name="keyword">
 											<p class="nameNav">${login.name}님</p>
 											<button type="button" class="btn btn-outline-dark"
-												onclick="location.href='/logout.do' ">로그아웃</button>
+												onclick="location.href='./logout.do' ">로그아웃</button>
 										</form>
 
 									</c:when>

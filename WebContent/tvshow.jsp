@@ -55,16 +55,16 @@
 				<div class="carousel-item active">
 					<c:forEach var="data" items="${tvList}">
 						<c:if test="${data.tvId <= '5' }">
-							<a class="card cardImg" href="/tvinfo.do?tvId=${data.tvId}">
-							<img src="/upload/${data.image }">${data.title }<br>${data.date }</a>
+							<a class="card cardImg" href="${pageContext.request.contextPath}/tvinfo.do?tvId=${data.tvId}">
+							<img src="${pageContext.request.contextPath}/img/${data.image }">${data.title }<br>${data.date }</a>
 						</c:if>
 					</c:forEach>
 				</div>
 				<div class="carousel-item">
 					<c:forEach var="data" items="${tvList}">
 						<c:if test="${data.tvId <= '10' and data.tvId > '5' }">
-							<a class="card cardImg" href="/tvinfo.do?tvId=${data.tvId}">
-							<img src="/upload/${data.image }">${data.title }<br>${data.date }</a>
+							<a class="card cardImg" href="${pageContext.request.contextPath}/tvinfo.do?tvId=${data.tvId}">
+							<img src="${pageContext.request.contextPath}/img/${data.image }">${data.title }<br>${data.date }</a>
 						</c:if>
 					</c:forEach>
 				</div>
@@ -87,16 +87,16 @@
 				<div class="carousel-item active">
 					<c:forEach var="data" items="${tvList}">
 						<c:if test="${data.tvId <= '15' and data.tvId > '10' }">
-							<a class="card cardImg" href="/tvinfo.do?tvId=${data.tvId}">
-							<img src="/upload/${data.image }">${data.title }<br>${data.date }</a>
+							<a class="card cardImg" href="${pageContext.request.contextPath}/tvinfo.do?tvId=${data.tvId}">
+							<img src="${pageContext.request.contextPath}/img/${data.image }">${data.title }<br>${data.date }</a>
 						</c:if>
 					</c:forEach>
 				</div>
 				<div class="carousel-item">
 					<c:forEach var="data" items="${tvList}">
 						<c:if test="${data.tvId <= '20' and data.tvId > '15' }">
-							<a class="card cardImg" href="/tvinfo.do?tvId=${data.tvId}">
-							<img src="/upload/${data.image }">${data.title }<br>${data.date }</a>
+							<a class="card cardImg" href="${pageContext.request.contextPath}/tvinfo.do?tvId=${data.tvId}">
+							<img src="${pageContext.request.contextPath}/img/${data.image }">${data.title }<br>${data.date }</a>
 						</c:if>
 					</c:forEach>
 				</div>
