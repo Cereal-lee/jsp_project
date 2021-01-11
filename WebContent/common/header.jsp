@@ -29,15 +29,14 @@
 			<div class="row">
 				<div class="header clearfix">
 					<h1>
-						<a href="#"> <em><img src="../img/logo.png" alt="WACHA" a
-								href="location.href='/' "></em>
+						<a href="/"> <em><img src="../img/logo.png" alt="WACHA" ></em>
 						</a>
 					</h1>
 					<nav class="nav">
 						<ul class="clearfix">
-							<li><a href="location.href='/' ">영화</a></li>
-							<li><a href="location.href='/tvshow.do' ">TV프로그램</a></li>
-							<li><a href="location.href='/book.do' ">책</a></li>
+							<li><a href="/">영화</a></li>
+							<li><a href="tvshow.do">TV프로그램</a></li>
+							<li><a href="book.do">책</a></li>
 						</ul>		
 						<div class="topright" style="margin-top:19px; margin-left:150px;">
 							<div class="container">
@@ -49,7 +48,10 @@
 												placeholder="작품을 검색해보세요">
 										<p style="margin-right:15px; margin-left:15px;">${login.name}님</p>
 										<button type="button" class="btn btn-outline-dark" onclick="location.href='/logout.do' ">로그아웃</button>
-									</form>	
+									</form>
+										<c:if test="${login.role eq 'admin' }">
+											관리자만 보입니다.
+										</c:if>
 									</c:when>
 									<c:otherwise>
 									

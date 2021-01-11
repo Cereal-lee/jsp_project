@@ -12,3 +12,7 @@
 ### web부분 적용 완료 (index.jsp & DispatcherServlet 등)
 
 ### impl 파일명 수정 (일괄 -impl)
+
+### web 부분 적용
+* css
+* 오타 수정 
